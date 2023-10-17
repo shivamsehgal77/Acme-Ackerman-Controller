@@ -15,7 +15,7 @@ The three basic components for a functioning robotic system are perception, plan
 3. Darshit Desai
 
 ## Phase 0:
-During Phase 0, we initiated the project with a high-level design, focusing on UML, and created an activity diagram that includes classes. This diagram serves as a valuable tool for comprehending the project's process flow. Comprehensive explanations of the Phase 0 process and its implementation are available in a video accessible through this google drive [link]()
+During Phase 0, we initiated the project with a high-level design, focusing on UML, and created an activity diagram that includes classes. This diagram serves as a valuable tool for comprehending the project's process flow. Comprehensive explanations of the Phase 0 process and its implementation are available in a video accessible through this google drive [link](https://drive.google.com/file/d/1D6kjTWbVGHKaCZbz6bTfUVqyngHtdGbq/view?usp=share_link)
 ### The Quad Chart can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/QuadChart/Initial_Phase0)
 ### The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
 ### The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
