@@ -19,4 +19,4 @@ During Phase 0, we initiated the project with a high-level design, focusing on U
 * The Quad Chart can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/QuadChart/Initial_Phase0)
 * The Project Proposal Report for Phase 0 can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/Reports/Phase0/ENPM808X_Proposal_Phase0_AckermanSteeringControl.pdf)
 * The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
-* The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
+* The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
