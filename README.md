@@ -15,7 +15,7 @@ The three basic components for a functioning robotic system are perception, plan
 3. Darshit Desai
 
 ## Phase 0:
-In phase 0 we have started with high level design which is the UML and made activity diagram with classes which will be helpful in understanding the project process flow. The details regarding the phase 0 process and implementation are clearly explained through a video which can be accessed through this [link](https://drive.google.com/drive/folders/1tj4G0VvpHVoRTa6DeKy0NeDprOo1u-xy?usp=sharing)
-### The proposal document and Quad Chart can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/proposal%20documents)
-### The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/UML_1.pdf)
-### The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Activity_diagram.jpeg)
+During Phase 0, we initiated the project with a high-level design, focusing on UML, and created an activity diagram that includes classes. This diagram serves as a valuable tool for comprehending the project's process flow. Comprehensive explanations of the Phase 0 process and its implementation are available in a video accessible through this google drive [link]()
+### The Quad Chart can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/QuadChart/Initial_Phase0)
+### The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
+### The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
