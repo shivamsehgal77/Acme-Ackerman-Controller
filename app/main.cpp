@@ -1,5 +1,5 @@
 /**
- * @file ackerman.cpp
+ * @file main.cpp
  * @author Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver, Patrik Pordi (ppordi@umd.edu) - Navigator, Darshit Desai (darshit@umd.edu) - Code designer
  * @brief 
  * @version 0.1
