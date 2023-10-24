@@ -20,25 +20,34 @@
  */
 class PID{  
   public:
-  PID(Eigen::Matrix<double,2,3> Kp, Eigen::Matrix<double,2,3> Ki, Eigen::Matrix<double,2,3> Kd, double dt): Kp(Kp), Ki(Ki), Kd(Kd), dt(dt){};
+  /**
+   * @brief Construct a new PID object
+   * 
+   * @param Kp 
+   * @param Ki 
+   * @param Kd 
+   * @param dt 
+   */
+  PID(Eigen::Matrix<double, 2, 1> Kp, Eigen::Matrix<double, 2, 1> Ki, Eigen::Matrix<double, 2, 1> Kd, double dt)
+      : Kp(Kp), Ki(Ki), Kd(Kd), dt(dt), PrevError(Eigen::Vector2d::Zero()), SumError(Eigen::Vector2d::Zero()) {}
   /**
    * @brief Set the Kp object
    * 
    * @param Kp 
    */
-  void setKp(Eigen::Matrix<double,2,3> Kp);
+  void setKp(Eigen::Matrix<double,2,1> Kp);
   /**
    * @brief Set the Ki object
    * 
    * @param Ki 
    */
-  void setKi(Eigen::Matrix<double,2,3> Ki);
+  void setKi(Eigen::Matrix<double,2,1> Ki);
   /**
    * @brief Set the Kd object
    * 
    * @param Kd 
    */
-  void setKd(Eigen::Matrix<double,2,3> Kd);
+  void setKd(Eigen::Matrix<double,2,1> Kd);
   /**
    * @brief Set the Dt object
    * 
@@ -50,7 +59,7 @@ class PID{
    * 
    * @return Eigen::Matrix<double,2,3> 
    */
-  Eigen::Matrix<double,2,3> getKp();
+  Eigen::Matrix<double,2,1> getKp();
   /**
    * @brief Get the Ki object
    * 
@@ -62,7 +71,7 @@ class PID{
    * 
    * @return Eigen::Matrix<double,2,3> 
    */
-  Eigen::Matrix<double,2,3> getKd();
+  Eigen::Matrix<double,2,1> getKd();
   /**
    * @brief Get the Dt object
    * 
@@ -76,19 +85,13 @@ class PID{
    * @param CurrentState 
    * @return Eigen::Vector2d 
    */
-  Eigen::Vector2d getControllerValues(Eigen::Vector3d TargetState, Eigen::Vector3d CurrentState);
-  /**
-   * @brief Reset the errors
-   * 
-   */
-  void ResetErrors();
+  Eigen::Vector2d getControllerValues(Eigen::Vector2d TargetState, Eigen::Vector2d CurrentState);
 
   private:
-  Eigen::Matrix<double,2,3> Kp;
-  Eigen::Matrix<double,2,3> Ki;
-  Eigen::Matrix<double,2,3> Kd;
+  Eigen::Matrix<double,2,1> Kp;
+  Eigen::Matrix<double,2,1> Ki;
+  Eigen::Matrix<double,2,1> Kd;
   double dt;
-  Eigen::Vector3d PrevError = Eigen::Vector3d::Zero();
-  Eigen::Vector3d SumError = Eigen::Vector3d::Zero();
-
+  Eigen::Vector2d PrevError;
+  Eigen::Vector2d SumError;
 };
