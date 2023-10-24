@@ -86,7 +86,9 @@ TEST(PID, getControllerValues) {
   double dt = 0.1;
   PID pid(Kp, Ki, Kd, dt);
   Eigen::Matrix<double, 2, 1> controllerValues;
-  controllerValues = pid.getControllerValues();
+  Eigen::Vector2d TargetState(1, 2);
+  Eigen::Vector2d CurrentState(1, 2);
+  controllerValues = pid.getControllerValues(TargetState, CurrentState);
 
   // Use Eigen's isApprox function to compare matrices with tolerance
   ASSERT_TRUE(controllerValues.isApprox(Eigen::Matrix<double, 2, 1>::Zero()));
@@ -105,8 +107,8 @@ TEST(Ackerman_Steering_Model, getWheelRadius) {
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
                                  steeringAngle, wheelVelocity, vehicleState);
-  ackerman.setWheelRadius(WheelRadius);
-  EXPECT_EQ(ackerman.getWheelRadius(), WheelRadius);
+  ackerman.setWheelRadius(wheelRadius);
+  EXPECT_EQ(ackerman.getWheelRadius(), wheelRadius);
 }
 /**
  * @brief Write a test to check get wheel base function in ackerman.hpp
@@ -121,8 +123,8 @@ TEST(Ackerman_Steering_Model, getWheelBase) {
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
                                  steeringAngle, wheelVelocity, vehicleState);
-  ackerman.setWheelBase(WheelBase);
-  EXPECT_EQ(ackerman.getWheelBase(), WheelBase);
+  ackerman.setWheelBase(wheelBase);
+  EXPECT_EQ(ackerman.getWheelBase(), wheelBase);
 }
 
 /**
@@ -155,7 +157,6 @@ TEST(Ackerman_Steering_Model, getSteeringAngle) {
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
                                  steeringAngle, wheelVelocity, vehicleState);
-  ackerman.setSteeringAngle(steeringAngle);
   EXPECT_EQ(ackerman.getSteeringAngle(), steeringAngle);
 }
 
@@ -199,7 +200,14 @@ TEST(Ackerman_Steering_Model, getVehicleState) {
  *
  */
 TEST(CheckAngleConstraintsTest, InvalidAngleConstraints) {
-  Ackerman_Steering_Model model;
+  double wheelBase = 1.0;
+  double axleWidth = 0.5;
+  double wheelRadius = 0.2;
+  Eigen::Vector2d steeringAngle(0.1, 0.2);
+  Eigen::Vector2d wheelVelocity(2.0, 1.5);
+  Eigen::Vector2d vehicleState(0.0, 0.0);
+  Ackerman_Steering_Model model(wheelBase, axleWidth, wheelRadius,
+                                 steeringAngle, wheelVelocity, vehicleState);
   // Assuming that your function should return false when angle constraints are
   // not met
   bool result = model.checkAngleConstraints();
