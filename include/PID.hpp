@@ -36,13 +36,7 @@ class PID {
    * @param dt
    */
   PID(Eigen::Matrix<double, 2, 1> Kp, Eigen::Matrix<double, 2, 1> Ki,
-      Eigen::Matrix<double, 2, 1> Kd, double dt)
-      : Kp(Kp),
-        Ki(Ki),
-        Kd(Kd),
-        dt(dt),
-        PrevError(Eigen::Vector2d::Zero()),
-        SumError(Eigen::Vector2d::Zero()) {}
+      Eigen::Matrix<double, 2, 1> Kd, double dt);
   /**
    * @brief Set the Kp object
    *

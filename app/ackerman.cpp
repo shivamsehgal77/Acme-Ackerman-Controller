@@ -24,6 +24,27 @@
 #include <vector>
 
 /**
+ * @brief Construct a new Ackerman_Steering_Model object
+ *
+ * @param WheelBase
+ * @param AxleWidth
+ * @param WheelRadius
+ * @param SteeringAngle
+ * @param WheelVelocity
+ * @param VehicleState
+ */
+Ackerman_Steering_Model::Ackerman_Steering_Model(
+    double WheelBase, double AxleWidth, double WheelRadius,
+    Eigen::Vector2d SteeringAngle, Eigen::Vector2d WheelVelocity,
+    Eigen::Vector2d VehicleState)
+    : WheelBase(WheelBase),
+      AxleWidth(AxleWidth),
+      WheelRadius(WheelRadius),
+      SteeringAngle(SteeringAngle),
+      WheelVelocity(WheelVelocity),
+      VehicleState(VehicleState) {}
+
+/**
  * @brief Get the wheel radius.
  *
  * @return The wheel radius.

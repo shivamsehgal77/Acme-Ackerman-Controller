@@ -42,17 +42,9 @@ class Ackerman_Steering_Model {
    * @param WheelVelocity
    * @param VehicleState
    */
-  Ackerman_Steering_Model(double WheelBase, double AxleWidth,
-                          double WheelRadius, Eigen::Vector2d SteeringAngle,
-                          Eigen::Vector2d WheelVelocity,
-                          Eigen::Vector2d VehicleState)
-      : WheelBase(WheelBase),
-        AxleWidth(AxleWidth),
-        WheelRadius(WheelRadius),
-        SteeringAngle(SteeringAngle),
-        WheelVelocity(WheelVelocity),
-        VehicleState(VehicleState) {}
-
+  Ackerman_Steering_Model(double WheelBase, double AxleWidth, double WheelRadius,
+                         Eigen::Vector2d SteeringAngle, Eigen::Vector2d WheelVelocity,
+                         Eigen::Vector2d VehicleState);
   /**
    * @brief Get the Wheel Radius object
    *
