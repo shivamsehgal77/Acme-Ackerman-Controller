@@ -79,7 +79,7 @@ class Ackerman_Steering_Model {
    *
    * @return double
    */
-  double getSteeringAngle();
+  Eigen::Vector2d getSteeringAngle();
 
   /**
    * @brief Get the Vehicle State object
