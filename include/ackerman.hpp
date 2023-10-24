@@ -116,14 +116,14 @@ class Ackerman_Steering_Model {
   void setVehicleState(Eigen::Vector2d State);
 
   /**
-   * @brief
+   * @brief Calculate the Ackerman Parameters like Steering Angle and Wheel Angular Velocity
    *
    * @return Eigen::Vector2d
    */
   Eigen::Vector2d calcAckermanParameters();
 
   /**
-   * @brief
+   * @brief Check if the Ackerman Parameters are within the constraints like Steering Angle < 45 degrees
    *
    * @return true
    * @return false
