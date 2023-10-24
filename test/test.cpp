@@ -1,3 +1,21 @@
+/**
+ * @file test.cpp
+ * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver, 
+ *                    Patrik Pordi (ppordi@umd.edu) - Navigator, 
+ *                    Darshit Desai (darshit@umd.edu) - Code designer
+ *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator, 
+ *                    Patrik Pordi (ppordi@umd.edu) - Code designer, 
+ *                    Darshit Desai (darshit@umd.edu) - Driver
+ * @brief Test file for PID and Ackerman Steering Model
+ * @version 0.1
+ * @date 2023-10-23
+ * 
+ * @copyright Copyright (c) 2023 Darshit Desai, Patrik Pordi, Shivam Sehgal
+ * This code is licensed under the MIT License. Please see the
+ * accompanying LICENSE file for the full text of the license.
+ * 
+ */
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "../include/PID.hpp"
