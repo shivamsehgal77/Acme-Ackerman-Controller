@@ -1,21 +1,27 @@
 /**
  * @file ackerman.cpp
- * @author Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver, Patrik Pordi (ppordi@umd.edu) - Navigator, Darshit Desai (darshit@umd.edu) - Code designer
- * @brief 
+ * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver,
+ *                    Patrik Pordi (ppordi@umd.edu) - Navigator,
+ *                    Darshit Desai (darshit@umd.edu) - Code designer
+ *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
+ *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
+ *                    Darshit Desai (darshit@umd.edu) - Driver
+ * @brief Ackerman steering model implementation.
  * @version 0.1
- * @date 2023-10-17
- * 
- * @copyright Copyright (c) 2023
- * 
+ * @date 2023-10-23
+ *
+ * @copyright Copyright (c) 2023 Darshit Desai, Patrik Pordi, Shivam Sehgal
+ * This code is licensed under the MIT License. Please see the
+ * accompanying LICENSE file for the full text of the license.
+ *
  */
 
+#include "../include/ackerman.hpp"
 
-# include "ackerman.hpp"
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/src/Core/Matrix.h>
 #include <iostream>
 #include <vector>
-
 
 /**
  * @brief Construct a new Ackerman_Steering_Model object
@@ -48,12 +54,24 @@ double Ackerman_Steering_Model::getWheelRadius() {
   return 0;
 }
 
-double Ackerman_Steering_Model::getAxleWidth(){
-  return AxleWidth;
+/**
+ * @brief Get the wheel base.
+ *
+ * @return The wheel base.
+ */
+double Ackerman_Steering_Model::getWheelBase() {
+  // @TODO: Implement the logic to get the wheel base.
+  return 0;
 }
 
-double Ackerman_Steering_Model::getSteeringAngle(){
-  return SteeringAngle;
+/**
+ * @brief Get the axle width.
+ *
+ * @return The axle width.
+ */
+double Ackerman_Steering_Model::getAxleWidth() {
+  // @TODO: Implement the logic to get the axle width.
+  return 0;
 }
 
 /**
@@ -67,21 +85,41 @@ Eigen::Vector2d Ackerman_Steering_Model::getSteeringAngle() {
   return Eigen::Vector2d(0, 0);
 }
 
-Eigen::Vector3d Ackerman_Steering_Model::getVehicleState(){
-  return VehicleState;
-} 
-
-void Ackerman_Steering_Model::setWheelBase(double length){
-  WheelBase = length;
+/**
+ * @brief Get the vehicle state.
+ *
+ * @return The vehicle state as an Eigen::Vector2d.
+ */
+Eigen::Vector2d Ackerman_Steering_Model::getVehicleState() {
+  // @TODO: Implement the logic to get the vehicle state.
+  return Eigen::Vector2d(0, 0);
 }
 
-void Ackerman_Steering_Model::setAxleWidth(double width){
-  AxleWidth = width;
+/**
+ * @brief Set the wheel base.
+ *
+ * @param length - The new wheel base value.
+ */
+void Ackerman_Steering_Model::setWheelBase(double length) {
+  // @TODO: Implement the logic to set the wheel base.
 }
 
-void Ackerman_Steering_Model::setSteeringAngleAndCarVelocity(Eigen::Vector2d controllerOutput){
-  SteeringAngle = controllerOutput(0);
-  VehicleVelocity = controllerOutput(1);
+/**
+ * @brief Set the axle width.
+ *
+ * @param width - The new axle width value.
+ */
+void Ackerman_Steering_Model::setAxleWidth(double width) {
+  // @TODO: Implement the logic to set the axle width.
+}
+
+/**
+ * @brief Set the wheel radius.
+ *
+ * @param radius - The new wheel radius value.
+ */
+void Ackerman_Steering_Model::setWheelRadius(double radius) {
+  // @TODO: Implement the logic to set the wheel radius.
 }
 
 /**
@@ -95,11 +133,15 @@ void Ackerman_Steering_Model::setSteeringAngleAndCarVelocity(
   // @TODO: Implement the logic to set the steering angle and wheel velocity and
   // also calculate the new vehicle heading and velocity.
   Eigen::Vector2d ackermanParameters = calcAckermanParameters();
-
 }
 
-Eigen::Vector3d calcAckermanParameters(){
-return 0;
+/**
+ * @brief Set the vehicle state.
+ *
+ * @param State - An Eigen::Vector2d representing the new vehicle state.
+ */
+void Ackerman_Steering_Model::setVehicleState(Eigen::Vector2d State) {
+  // @TODO: Implement the logic to set the vehicle state.
 }
 
 /**
@@ -120,5 +162,4 @@ Eigen::Vector2d Ackerman_Steering_Model::calcAckermanParameters() {
 bool Ackerman_Steering_Model::checkAngleConstraints() {
   // @TODO: Implement the logic to check angle constraints.
   return false;  // Modify the return value based on your constraints.
-
 }

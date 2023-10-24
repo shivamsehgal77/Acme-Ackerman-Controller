@@ -1,4 +1,3 @@
-
 /**
  * @file test.cpp
  * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver,
@@ -17,10 +16,7 @@
  *
  */
 
-
 #include <gtest/gtest.h>
-#include "lib1.hpp"
-#include "lib2.hpp"
 
 #include "../include/PID.hpp"
 #include "../include/ackerman.hpp"
