@@ -3,6 +3,8 @@ add_executable(cpp-test
   # list of source cpp files:
   main.cpp
   test.cpp
+  ../app/ackerman.cpp
+  ../app/PID.cpp
   )
 
 # Any include directories needed to build this target.
@@ -17,8 +19,6 @@ target_include_directories(cpp-test PUBLIC
 target_link_libraries(cpp-test PUBLIC
   # list of libraries:
   gtest
-  myLib1
-  myLib2
   )
 
 # Enable CMake’s test runner to discover the tests included in the

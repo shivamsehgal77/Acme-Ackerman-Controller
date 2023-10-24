@@ -24,6 +24,10 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
+
+
 #
 # Doxygen Support check if Doxygen is installed
 # ref: https://cmake.org/cmake/help/latest/module/FindDoxygen.html
