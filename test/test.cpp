@@ -66,7 +66,8 @@ TEST(PID, setKd) {
  */
 TEST(PID, setDt) {
   double dt = 0.1;
-  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), dt);
+  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(),
+          Eigen::Vector2d::Zero(), dt);
   pid.setDt(dt);
 
   // Check if the dt value is set correctly
@@ -106,7 +107,7 @@ TEST(Ackerman_Steering_Model, getWheelRadius) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   ackerman.setWheelRadius(wheelRadius);
   EXPECT_EQ(ackerman.getWheelRadius(), wheelRadius);
 }
@@ -122,7 +123,7 @@ TEST(Ackerman_Steering_Model, getWheelBase) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   ackerman.setWheelBase(wheelBase);
   EXPECT_EQ(ackerman.getWheelBase(), wheelBase);
 }
@@ -139,7 +140,7 @@ TEST(Ackerman_Steering_Model, getAxleWidth) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   ackerman.setAxleWidth(axleWidth);
   EXPECT_EQ(ackerman.getAxleWidth(), axleWidth);
 }
@@ -156,7 +157,7 @@ TEST(Ackerman_Steering_Model, getSteeringAngle) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   EXPECT_EQ(ackerman.getSteeringAngle(), steeringAngle);
 }
 
@@ -172,7 +173,7 @@ TEST(Ackerman_Steering_Model, setSteeringAngleAndCarVelocity) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   Eigen::Vector2d pidoutput;
   pidoutput = Eigen::Vector2d(0, 0);
   ackerman.setSteeringAngleAndCarVelocity(pidoutput);
@@ -190,7 +191,7 @@ TEST(Ackerman_Steering_Model, getVehicleState) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                   steeringAngle, wheelVelocity, vehicleState);
   ackerman.setVehicleState(vehicleState);
   EXPECT_EQ(ackerman.getVehicleState(), vehicleState);
 }
@@ -207,7 +208,7 @@ TEST(CheckAngleConstraintsTest, InvalidAngleConstraints) {
   Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
   Ackerman_Steering_Model model(wheelBase, axleWidth, wheelRadius,
-                                 steeringAngle, wheelVelocity, vehicleState);
+                                steeringAngle, wheelVelocity, vehicleState);
   // Assuming that your function should return false when angle constraints are
   // not met
   bool result = model.checkAngleConstraints();

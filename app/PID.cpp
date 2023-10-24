@@ -30,7 +30,11 @@
  */
 PID::PID(Eigen::Matrix<double, 2, 1> Kp, Eigen::Matrix<double, 2, 1> Ki,
          Eigen::Matrix<double, 2, 1> Kd, double dt)
-    : Kp(Kp), Ki(Ki), Kd(Kd), dt(dt), PrevError(Eigen::Vector2d::Zero()),
+    : Kp(Kp),
+      Ki(Ki),
+      Kd(Kd),
+      dt(dt),
+      PrevError(Eigen::Vector2d::Zero()),
       SumError(Eigen::Vector2d::Zero()) {
   // @TODO : Additional constructor initialization code, if needed
 }

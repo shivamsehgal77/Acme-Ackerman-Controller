@@ -18,8 +18,9 @@
 
 #include "../include/ackerman.hpp"
 
-#include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/src/Core/Matrix.h>
+
+#include <eigen3/Eigen/Core>
 #include <iostream>
 #include <vector>
 
@@ -33,10 +34,12 @@
  * @param WheelVelocity
  * @param VehicleState
  */
-Ackerman_Steering_Model::Ackerman_Steering_Model(
-    double WheelBase, double AxleWidth, double WheelRadius,
-    Eigen::Vector2d SteeringAngle, Eigen::Vector2d WheelVelocity,
-    Eigen::Vector2d VehicleState)
+Ackerman_Steering_Model::Ackerman_Steering_Model(double WheelBase,
+                                                 double AxleWidth,
+                                                 double WheelRadius,
+                                                 Eigen::Vector2d SteeringAngle,
+                                                 Eigen::Vector2d WheelVelocity,
+                                                 Eigen::Vector2d VehicleState)
     : WheelBase(WheelBase),
       AxleWidth(AxleWidth),
       WheelRadius(WheelRadius),
@@ -151,7 +154,7 @@ void Ackerman_Steering_Model::setVehicleState(Eigen::Vector2d State) {
  */
 Eigen::Vector2d Ackerman_Steering_Model::calcAckermanParameters() {
   // @TODO: Implement the logic to calculate Ackerman parameters.
-    return Eigen::Vector2d(0, 0);
+  return Eigen::Vector2d(0, 0);
 }
 
 /**
