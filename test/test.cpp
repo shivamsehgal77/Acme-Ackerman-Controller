@@ -28,9 +28,11 @@
 TEST(PID, setKp) {
   Eigen::Matrix<double, 2, 1> Kp;
   Kp = Eigen::Vector2d(1, 2);
-  PID pid;
+  PID pid(Kp, Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), 0.0);
   pid.setKp(Kp);
-  EXPECT_EQ(pid.getKp(), Kp);
+
+  // Check if the Kp values are set correctly
+  ASSERT_TRUE(pid.getKp().isApprox(Kp));
 }
 /**
  * @brief Write a test to check GetKi() function
@@ -39,9 +41,11 @@ TEST(PID, setKp) {
 TEST(PID, setKi) {
   Eigen::Matrix<double, 2, 1> Ki;
   Ki = Eigen::Vector2d(1, 2);
-  PID pid;
+  PID pid(Eigen::Vector2d::Zero(), Ki, Eigen::Vector2d::Zero(), 0.0);
   pid.setKi(Ki);
-  EXPECT_EQ(pid.getKi(), Ki);
+
+  // Check if the Ki values are set correctly
+  ASSERT_TRUE(pid.getKi().isApprox(Ki));
 }
 /**
  * @brief Write a test to check GetKd() function
@@ -50,9 +54,11 @@ TEST(PID, setKi) {
 TEST(PID, setKd) {
   Eigen::Matrix<double, 2, 1> Kd;
   Kd = Eigen::Vector2d(1, 2);
-  PID pid;
+  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), Kd, 0.0);
   pid.setKd(Kd);
-  EXPECT_EQ(pid.getKd(), Kd);
+
+  // Check if the Kd values are set correctly
+  ASSERT_TRUE(pid.getKd().isApprox(Kd));
 }
 /**
  * @brief Write a test to check GetDt() function
@@ -60,9 +66,11 @@ TEST(PID, setKd) {
  */
 TEST(PID, setDt) {
   double dt = 0.1;
-  PID pid;
+  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), dt);
   pid.setDt(dt);
-  EXPECT_EQ(pid.getDt(), dt);
+
+  // Check if the dt value is set correctly
+  ASSERT_DOUBLE_EQ(pid.getDt(), dt);
 }
 /**
  * @brief Write a test to check get controller values function in PID.hpp
@@ -76,14 +84,12 @@ TEST(PID, getControllerValues) {
   Eigen::Matrix<double, 2, 1> Kd;
   Kd = Eigen::Vector2d(1, 2);
   double dt = 0.1;
-  PID pid;
-  pid.setKp(Kp);
-  pid.setKi(Ki);
-  pid.setKd(Kd);
-  pid.setDt(dt);
+  PID pid(Kp, Ki, Kd, dt);
   Eigen::Matrix<double, 2, 1> controllerValues;
   controllerValues = pid.getControllerValues();
-  EXPECT_EQ(controllerValues, Eigen::Matrix<double, 2, 1>::Zero());
+
+  // Use Eigen's isApprox function to compare matrices with tolerance
+  ASSERT_TRUE(controllerValues.isApprox(Eigen::Matrix<double, 2, 1>::Zero()));
 }
 
 /**
@@ -91,8 +97,14 @@ TEST(PID, getControllerValues) {
  *
  */
 TEST(Ackerman_Steering_Model, getWheelRadius) {
-  double WheelRadius = 0.1;
-  Ackerman_Steering_Model ackerman;
+  double wheelBase = 1.0;
+  double axleWidth = 0.5;
+  double wheelRadius = 0.2;
+  Eigen::Vector2d steeringAngle(0.1, 0.2);
+  Eigen::Vector2d wheelVelocity(2.0, 1.5);
+  Eigen::Vector2d vehicleState(0.0, 0.0);
+  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
+                                 steeringAngle, wheelVelocity, vehicleState);
   ackerman.setWheelRadius(WheelRadius);
   EXPECT_EQ(ackerman.getWheelRadius(), WheelRadius);
 }
@@ -101,8 +113,14 @@ TEST(Ackerman_Steering_Model, getWheelRadius) {
  *
  */
 TEST(Ackerman_Steering_Model, getWheelBase) {
-  double WheelBase = 0.1;
-  Ackerman_Steering_Model ackerman;
+  double wheelBase = 1.0;
+  double axleWidth = 0.5;
+  double wheelRadius = 0.2;
+  Eigen::Vector2d steeringAngle(0.1, 0.2);
+  Eigen::Vector2d wheelVelocity(2.0, 1.5);
+  Eigen::Vector2d vehicleState(0.0, 0.0);
+  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
+                                 steeringAngle, wheelVelocity, vehicleState);
   ackerman.setWheelBase(WheelBase);
   EXPECT_EQ(ackerman.getWheelBase(), WheelBase);
 }
