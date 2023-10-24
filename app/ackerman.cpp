@@ -19,6 +19,7 @@
 #include "../include/ackerman.hpp"
 
 #include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/src/Core/Matrix.h>
 #include <iostream>
 #include <vector>
 
@@ -57,7 +58,7 @@ double Ackerman_Steering_Model::getAxleWidth() {
  *
  * @return The steering angle.
  */
-double Ackerman_Steering_Model::getSteeringAngle() {
+Eigen::Vector2d Ackerman_Steering_Model::getSteeringAngle() {
   // @TODO: Implement the logic to get the steering angle which is Eigen2d
   // vector.
   return Eigen::Vector2d(0, 0);
