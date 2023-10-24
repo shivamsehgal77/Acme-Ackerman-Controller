@@ -78,7 +78,7 @@ class PID {
    *
    * @return Eigen::Matrix<double,2,3>
    */
-  Eigen::Matrix<double, 2, 3> getKi();
+  Eigen::Matrix<double, 2, 1> getKi();
   /**
    * @brief Get the Kd object
    *
