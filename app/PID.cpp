@@ -1,22 +1,23 @@
 /**
  * @file PID.cpp
- * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver, 
- *                    Patrik Pordi (ppordi@umd.edu) - Navigator, 
+ * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver,
+ *                    Patrik Pordi (ppordi@umd.edu) - Navigator,
  *                    Darshit Desai (darshit@umd.edu) - Code designer
- *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator, 
- *                    Patrik Pordi (ppordi@umd.edu) - Code designer, 
+ *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
+ *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
  *                    Darshit Desai (darshit@umd.edu) - Driver
  * @brief PID controller implementation.
  * @version 0.1
  * @date 2023-10-17
- * 
+ *
  * @copyright Copyright (c) 2023 Darshit Desai, Patrik Pordi, Shivam Sehgal
  * This code is licensed under the MIT License. Please see the
  * accompanying LICENSE file for the full text of the license.
- * 
+ *
  */
 
-# include "../include/PID.hpp"
+#include "../include/PID.hpp"
+
 #include <eigen3/Eigen/Core>
 
 /**
@@ -25,7 +26,7 @@
  * @param Kp - The new proportional gain matrix.
  */
 void PID::setKp(Eigen::Matrix<double, 2, 1> Kp) {
-    // @TODO: Implement the logic to set the proportional gain matrix.
+  // @TODO: Implement the logic to set the proportional gain matrix.
 }
 
 /**
@@ -34,7 +35,7 @@ void PID::setKp(Eigen::Matrix<double, 2, 1> Kp) {
  * @param Ki - The new integral gain matrix.
  */
 void PID::setKi(Eigen::Matrix<double, 2, 1> Ki) {
-    // @TODO: Implement the logic to set the integral gain matrix.
+  // @TODO: Implement the logic to set the integral gain matrix.
 }
 
 /**
@@ -43,7 +44,7 @@ void PID::setKi(Eigen::Matrix<double, 2, 1> Ki) {
  * @param Kd - The new derivative gain matrix.
  */
 void PID::setKd(Eigen::Matrix<double, 2, 1> Kd) {
-    // @TODO: Implement the logic to set the derivative gain matrix.
+  // @TODO: Implement the logic to set the derivative gain matrix.
 }
 
 /**
@@ -52,7 +53,7 @@ void PID::setKd(Eigen::Matrix<double, 2, 1> Kd) {
  * @param dt - The new time step value.
  */
 void PID::setDt(double dt) {
-   // @TODO: Implement the logic to set the time step.
+  // @TODO: Implement the logic to set the time step.
 }
 
 /**
@@ -61,8 +62,8 @@ void PID::setDt(double dt) {
  * @return Eigen::Matrix<double,2,1> - The proportional gain matrix.
  */
 Eigen::Matrix<double, 2, 1> PID::getKp() {
-    // @TODO: Implement the logic to get the Eigen proportional gain matrix.
-    return Eigen::Matrix<double,2,1>(0,0);
+  // @TODO: Implement the logic to get the Eigen proportional gain matrix.
+  return Eigen::Matrix<double, 2, 1>(0, 0);
 }
 
 /**
@@ -71,8 +72,8 @@ Eigen::Matrix<double, 2, 1> PID::getKp() {
  * @return Eigen::Matrix<double,2,1> - The integral gain matrix.
  */
 Eigen::Matrix<double, 2, 1> PID::getKi() {
-    // @TODO: Implement the logic to get the Eigen integral gain matrix.
-    return Eigen::Matrix<double,2,1>(0,0);
+  // @TODO: Implement the logic to get the Eigen integral gain matrix.
+  return Eigen::Matrix<double, 2, 1>(0, 0);
 }
 
 /**
@@ -81,8 +82,8 @@ Eigen::Matrix<double, 2, 1> PID::getKi() {
  * @return Eigen::Matrix<double,2,1> - The derivative gain matrix.
  */
 Eigen::Matrix<double, 2, 1> PID::getKd() {
-    // @TODO: Implement the logic to get the Eigen derivative gain matrix.
-    return Eigen::Matrix<double,2,1>(0,0);
+  // @TODO: Implement the logic to get the Eigen derivative gain matrix.
+  return Eigen::Matrix<double, 2, 1>(0, 0);
 }
 
 /**
@@ -91,8 +92,8 @@ Eigen::Matrix<double, 2, 1> PID::getKd() {
  * @return double - The time step value.
  */
 double PID::getDt() {
-    // @TODO: Implement the logic to get the time step.
-    return 0.0;
+  // @TODO: Implement the logic to get the time step.
+  return 0.0;
 }
 
 /**
@@ -102,6 +103,8 @@ double PID::getDt() {
  * @param CurrentState - The current state as an Eigen::Vector2d.
  * @return Eigen::Vector2d - The controller output.
  */
-Eigen::Vector2d PID::getControllerValues(Eigen::Vector2d TargetState, Eigen::Vector2d CurrentState) {
-    // @TODO: Implement the controller logic to calculate and return the controller output.
+Eigen::Vector2d PID::getControllerValues(Eigen::Vector2d TargetState,
+                                         Eigen::Vector2d CurrentState) {
+  // @TODO: Implement the controller logic to calculate and return the
+  // controller output.
 }
