@@ -1,7 +1,9 @@
 # Acme Ackerman Controller
 
 [![Coverage Report](https://codecov.io/gh/shivamsehgal77/Acme-Ackerman-Controller/branch/main/graph/badge.svg)](https://codecov.io/gh/shivamsehgal77/Acme-Ackerman-Controller) 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 [![Build Status](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg)](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/actions/workflows/run-unit-test-and-upload-codecov.yml)
 
 ## Overview
@@ -21,10 +23,15 @@ The three basic components for a functioning robotic system are perception, plan
 3. [Darshit Desai](https://www.github.com/darshit-desai) - Driver
 
 ## Phase 0:
+
 During Phase 0, we initiated the project with a high-level design, focusing on UML, and created an activity diagram that includes classes. This diagram serves as a valuable tool for comprehending the project's process flow. Comprehensive explanations of the Phase 0 process and its implementation are available in a video accessible through this google drive [link](https://drive.google.com/file/d/1D6kjTWbVGHKaCZbz6bTfUVqyngHtdGbq/view?usp=share_link)
+
 * The Quad Chart can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/QuadChart/Initial_Phase0)
+
 * The Project Proposal Report for Phase 0 can be found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/Reports/Phase0/ENPM808X_Proposal_Phase0_AckermanSteeringControl.pdf)
+
 * The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
+
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
 ![Acme Ackerman Class Diagram](UML-diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
 
