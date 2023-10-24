@@ -56,9 +56,10 @@ During Phase 0 we did design and even added the stubs that we had to do for phas
 | 3.2       | Revising Ackerman hpp                             | 1      | 30                   |
 | 3.3       | Updating the cpp files                            | 1      | 30                   |
 | 3.4       | Updating the CMakeLists.txt                       | 1      | 30                   |
-| 3.5       |                                                   | 1      |                      |
+| 3.5       | Update Update run-unit-test-code-coverage.yml file to include eigen 3                          | 1      |            10          |
 | 3.6       | Updating Readme.md                                | 1      | 30                   |
-|           |                                                   |        |                      |
+
 * The Revised UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Revised_Phase1)
+
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
 ![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
