@@ -33,6 +33,7 @@ During Phase 0, we initiated the project with a high-level design, focusing on U
 * The Initial UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Initial_Phase0)
 
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
+
 ![Acme Ackerman Class Diagram](UML-diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
 
 ## Phase 1:
