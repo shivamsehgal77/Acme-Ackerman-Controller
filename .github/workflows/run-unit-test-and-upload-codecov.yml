@@ -49,7 +49,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install libeigen3-dev
-          
+
           
       # Build, run unit test, and generate coverage report
       - name: Configure CMake flags and build exectables
@@ -64,5 +64,4 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           files: ${{github.workspace}}/build/test_coverage.info
           fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)      
-          
+          verbose: true # optional (default = false)
