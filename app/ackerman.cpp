@@ -110,7 +110,7 @@ void Ackerman_Steering_Model::setSteeringAngleAndCarVelocity(
     Eigen::Vector2d controllerOutput) {
   // @TODO: Implement the logic to set the steering angle and wheel velocity and
   // also calculate the new vehicle heading and velocity.
-  calcAckermanParameters();
+  Eigen::Vector2d ackermanParameters = calcAckermanParameters();
 }
 
 /**
@@ -129,6 +129,7 @@ void Ackerman_Steering_Model::setVehicleState(Eigen::Vector2d State) {
  */
 Eigen::Vector2d Ackerman_Steering_Model::calcAckermanParameters() {
   // @TODO: Implement the logic to calculate Ackerman parameters.
+    return Eigen::Vector2d(0, 0);
 }
 
 /**
