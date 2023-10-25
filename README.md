@@ -34,23 +34,14 @@ During Phase 0, we initiated the project with a high-level design, focusing on U
 
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
 
-![Acme Ackerman Class Diagram](UML-diagrams/Initial_Phase0/acme-ackerman-class-diagram.png)
+<img src="UML-diagrams/Initial_Phase0/acme-ackerman-class-diagram.png" alt="Acme Ackerman Class Diagram" style="clip: rect(0px, auto, 20px, auto); max-width: 100%;">
+
+
 
 ## Phase 1:
 During Phase 0 we did design and even added the stubs that we had to do for phase1. For phase1 in the first sprint meeting we decided to update the plan, correspondingly we changed UML class diagram and stubs. Product Backlog, Iteration backlog and work log excel sheet [Sheet](https://docs.google.com/spreadsheets/d/1ph1sYep433EigfkVelYI8igBHbYIN74LMEw9CF0V7-I/edit#gid=0 )
 | Unique ID | Task                                              | Sprint | Estimated Time (min) |
 |-----------|---------------------------------------------------|--------|----------------------|
-| 1.1       | Research on Ackerman Steering                     | 1      | 60                   |
-| 1.2       | Figuring out the state vectors                    | 1      | 30                   |
-| 1.3       | Research on PID controller                        | 1      | 50                   |
-| 1.4       | Writing up the dynamic equations                  | 1      | 30                   |
-| 1.5       | Revisiting the project description on elms        | 1      | 20                   |
-| 1.6       | Creating the GitHub repository                    | 1      | 10                   |
-| 1.7       | Cloning cpp-boilerplate                           | 1      | 10                   |
-| 1.8       | Creating the initial Activity diagram             | 1      | 30                   |
-| 1.9       | Creating the UML diagram for Ackerman Steering    | 1      | 30                   |
-| 2         | Creating the UML diagram for PID                  | 1      | 30                   |
-| 2.1       | Creating the skeleton hpp files                   | 1      | 30                   |
 | 2.2       | Revise the UML diagrams                           | 1      | 50                   |
 | 2.3       | Create UML diagram for Robot class                | 1      | 20                   |
 | 2.4       | Creating the skeleton hpp file for the new class  | 1      | 20                   |
@@ -64,7 +55,7 @@ During Phase 0 we did design and even added the stubs that we had to do for phas
 | 3.2       | Revising Ackerman hpp                             | 1      | 30                   |
 | 3.3       | Updating the cpp files                            | 1      | 30                   |
 | 3.4       | Updating the CMakeLists.txt                       | 1      | 30                   |
-| 3.5       | Update Update run-unit-test-code-coverage.yml file to include eigen 3                          | 1      |            10          |
+| 3.5       | Update run-unit-test-code-coverage.yml file to include eigen 3                          | 1      |            10          |
 | 3.6       | Updating Readme.md                                | 1      | 30                   |
 
 * The Revised UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Revised_Phase1)
