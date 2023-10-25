@@ -62,3 +62,57 @@ During Phase 0 we did design and even added the stubs that we had to do for phas
 
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
 ![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
+
+## Dependencies Installation
+The project requires Eigen3 library installation. Follow the below procedure to install Eigen3 libraries
+
+```bash
+    # Install minimal prerequisites (Ubuntu 20.04 as reference)
+    sudo apt update && sudo apt install -y cmake g++ wget unzip
+    # Download and install Eigen 3
+    sudo apt-get install libeigen3-dev
+```
+
+## Code Build Procedure
+
+Follow the below procedure to build the code after cloning the repository
+```bash
+    # Configure the project and generate a native build system:
+    # Must re-run this command whenever any CMakeLists.txt file has been changed.
+    cmake -S ./ -B build/
+    # Compile and build the project:
+    # rebuild only files that are modified since the last build
+    cmake --build build/
+    # Run program:
+    ./build/app/shell-app
+    # Clean
+    cmake --build build/ --target clean
+    # Clean and start over:
+    rm -rf build/
+```
+
+To run the tests and generate code coverage reports:
+
+```bash
+    # Run the tests after build
+    cd build/
+    ctest
+
+    # For Code Coverage Installation and build code coverage report by going to build directory
+    cd ..
+    sudo apt-get install gcovr lcov
+    # Set the build type to Debug and WANT_COVERAGE=ON
+    cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
+    # Now, do a clean compile, run unit test, and generate the covereage report
+    cmake --build build/ --clean-first --target all test_coverage
+    # open a web browser to browse the test coverage report
+    # open build/test_coverage/index.html or check in the directory
+
+    # Generating Doxygen Docs 
+    cmake --build build/ --target docs
+    # Check the Generated Doc HTML by going to docs -> html -> index.html
+```
+
+## LICENSE
+
+This project is open source and is released under the MIT License. You are free to use, modify, and distribute the code in accordance with the terms of the MIT License.
