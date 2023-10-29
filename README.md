@@ -40,23 +40,23 @@ During Phase 0, we initiated the project with a high-level design, focusing on U
 
 ## Phase 1:
 During Phase 0 we did design and even added the stubs that we had to do for phase1. For phase1 in the first sprint meeting we decided to update the plan, correspondingly we changed UML class diagram and stubs. Product Backlog, Iteration backlog and work log excel sheet [Sheet](https://docs.google.com/spreadsheets/d/1ph1sYep433EigfkVelYI8igBHbYIN74LMEw9CF0V7-I/edit#gid=0 )
-| Unique ID | Task                                              | Sprint | Estimated Time (min) |
-|-----------|---------------------------------------------------|--------|----------------------|
-| 2.2       | Revise the UML diagrams                           | 1      | 50                   |
-| 2.3       | Create UML diagram for Robot class                | 1      | 20                   |
-| 2.4       | Creating the skeleton hpp file for the new class  | 1      | 20                   |
-| 2.5       | Create iteration 1 branch                         | 1      | 10                   |
-| 2.6       | Selecting and adding the license file             | 1      | 30                   |
-| 2.7       | Implementing the solitary test for PID class      | 1      | 20                   |
-| 2.8       | Implementing the solitary test for Ackerman class | 1      | 30                   |
-| 2.9       | Cpplint errors                                    | 1      | 10                   |
-| 3         | Cppcheck errors                                   | 1      | 10                   |
-| 3.1       | Revising PID hpp                                  | 1      | 40                   |
-| 3.2       | Revising Ackerman hpp                             | 1      | 30                   |
-| 3.3       | Updating the cpp files                            | 1      | 30                   |
-| 3.4       | Updating the CMakeLists.txt                       | 1      | 30                   |
-| 3.5       | Update run-unit-test-code-coverage.yml file to include eigen 3                          | 1      |            10          |
-| 3.6       | Updating Readme.md                                | 1      | 30                   |
+| Unique ID | Task                                                           | Sprint | Estimated Time (min) |
+|-----------|----------------------------------------------------------------|--------|----------------------|
+| 2.2       | Revise the UML diagrams                                        | 1      | 50                   |
+| 2.3       | Create UML diagram for Robot class                             | 1      | 20                   |
+| 2.4       | Creating the skeleton hpp file for the new class               | 1      | 20                   |
+| 2.5       | Create iteration 1 branch                                      | 1      | 10                   |
+| 2.6       | Selecting and adding the license file                          | 1      | 30                   |
+| 2.7       | Implementing the solitary test for PID class                   | 1      | 20                   |
+| 2.8       | Implementing the solitary test for Ackerman class              | 1      | 30                   |
+| 2.9       | Cpplint errors                                                 | 1      | 10                   |
+| 3         | Cppcheck errors                                                | 1      | 10                   |
+| 3.1       | Revising PID hpp                                               | 1      | 40                   |
+| 3.2       | Revising Ackerman hpp                                          | 1      | 30                   |
+| 3.3       | Updating the cpp files                                         | 1      | 30                   |
+| 3.4       | Updating the CMakeLists.txt                                    | 1      | 30                   |
+| 3.5       | Update run-unit-test-code-coverage.yml file to include eigen 3 | 1      | 10                   |
+| 3.6       | Updating Readme.md                                             | 1      | 30                   |
 
 * The Revised UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Revised_Phase1)
 
