@@ -6,6 +6,9 @@
  *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
  *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
  *                    Darshit Desai (darshit@umd.edu) - Driver
+ *          Phase 2 - Shivam Sehgal (ssehgal7@umd.edu) - Code designer,
+ *                    Patrik Pordi (ppordi@umd.edu) - Driver,
+ *                    Darshit Desai (darshit@umd.edu) - Navigator
  * @brief Ackerman Steering Model header file.
  * @version 0.1
  * @date 2023-10-17
@@ -35,17 +38,8 @@ class Ackerman_Steering_Model {
   /**
    * @brief Construct a new Ackerman_Steering_Model object
    *
-   * @param WheelBase
-   * @param AxleWidth
-   * @param WheelRadius
-   * @param SteeringAngle
-   * @param WheelVelocity
-   * @param VehicleState
    */
-  Ackerman_Steering_Model(double WheelBase, double AxleWidth,
-                          double WheelRadius, Eigen::Vector2d SteeringAngle,
-                          Eigen::Vector2d WheelVelocity,
-                          Eigen::Vector2d VehicleState);
+  Ackerman_Steering_Model();
   /**
    * @brief Get the Wheel Radius object
    *
@@ -66,13 +60,6 @@ class Ackerman_Steering_Model {
    * @return double
    */
   double getAxleWidth();
-
-  /**
-   * @brief Get the Steering Angle object
-   *
-   * @return double
-   */
-  Eigen::Vector2d getSteeringAngle();
 
   /**
    * @brief Get the Vehicle State object
@@ -103,11 +90,12 @@ class Ackerman_Steering_Model {
   void setWheelRadius(double radius);
 
   /**
-   * @brief Set the Steering Angle And Car Velocity object
+   * @brief Ackerman parameter calculations and state update
    *
    * @param controllerOutput
+   * @param dt
    */
-  void setSteeringAngleAndCarVelocity(Eigen::Vector2d controllerOutput);
+  void AckermanCalc_StateUpdate(Eigen::Vector2d controllerOutput, double dt);
 
   /**
    * @brief Set the Vehicle State object
@@ -115,21 +103,4 @@ class Ackerman_Steering_Model {
    * @param State
    */
   void setVehicleState(Eigen::Vector2d State);
-
-  /**
-   * @brief Calculate the Ackerman Parameters like Steering Angle and Wheel
-   * Angular Velocity
-   *
-   * @return Eigen::Vector2d
-   */
-  Eigen::Vector2d calcAckermanParameters();
-
-  /**
-   * @brief Check if the Ackerman Parameters are within the constraints like
-   * Steering Angle < 45 degrees
-   *
-   * @return true
-   * @return false
-   */
-  bool checkAngleConstraints();
 };

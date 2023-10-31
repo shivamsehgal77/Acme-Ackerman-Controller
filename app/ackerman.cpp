@@ -6,6 +6,9 @@
  *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
  *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
  *                    Darshit Desai (darshit@umd.edu) - Driver
+ *          Phase 2 - Shivam Sehgal (ssehgal7@umd.edu) - Code designer,
+ *                    Patrik Pordi (ppordi@umd.edu) - Driver,
+ *                    Darshit Desai (darshit@umd.edu) - Navigator
  * @brief Ackerman steering model implementation.
  * @version 0.1
  * @date 2023-10-23
@@ -27,25 +30,10 @@
 /**
  * @brief Construct a new Ackerman_Steering_Model object
  *
- * @param WheelBase
- * @param AxleWidth
- * @param WheelRadius
- * @param SteeringAngle
- * @param WheelVelocity
- * @param VehicleState
  */
-Ackerman_Steering_Model::Ackerman_Steering_Model(double WheelBase,
-                                                 double AxleWidth,
-                                                 double WheelRadius,
-                                                 Eigen::Vector2d SteeringAngle,
-                                                 Eigen::Vector2d WheelVelocity,
-                                                 Eigen::Vector2d VehicleState)
-    : WheelBase(WheelBase),
-      AxleWidth(AxleWidth),
-      WheelRadius(WheelRadius),
-      SteeringAngle(SteeringAngle),
-      WheelVelocity(WheelVelocity),
-      VehicleState(VehicleState) {}
+Ackerman_Steering_Model::Ackerman_Steering_Model() {
+
+}
 
 /**
  * @brief Get the wheel radius.
@@ -54,7 +42,7 @@ Ackerman_Steering_Model::Ackerman_Steering_Model(double WheelBase,
  */
 double Ackerman_Steering_Model::getWheelRadius() {
   // @TODO: Implement the logic to get the wheel radius.
-  return 0;
+  return 0.0;
 }
 
 /**
@@ -64,7 +52,7 @@ double Ackerman_Steering_Model::getWheelRadius() {
  */
 double Ackerman_Steering_Model::getWheelBase() {
   // @TODO: Implement the logic to get the wheel base.
-  return 0;
+  return 0.0;
 }
 
 /**
@@ -74,18 +62,7 @@ double Ackerman_Steering_Model::getWheelBase() {
  */
 double Ackerman_Steering_Model::getAxleWidth() {
   // @TODO: Implement the logic to get the axle width.
-  return 0;
-}
-
-/**
- * @brief Get the steering angle.
- *
- * @return The steering angle.
- */
-Eigen::Vector2d Ackerman_Steering_Model::getSteeringAngle() {
-  // @TODO: Implement the logic to get the steering angle which is Eigen2d
-  // vector.
-  return Eigen::Vector2d(0, 0);
+  return 0.0;
 }
 
 /**
@@ -95,7 +72,7 @@ Eigen::Vector2d Ackerman_Steering_Model::getSteeringAngle() {
  */
 Eigen::Vector2d Ackerman_Steering_Model::getVehicleState() {
   // @TODO: Implement the logic to get the vehicle state.
-  return Eigen::Vector2d(0, 0);
+  return {0, 0};
 }
 
 /**
@@ -105,15 +82,17 @@ Eigen::Vector2d Ackerman_Steering_Model::getVehicleState() {
  */
 void Ackerman_Steering_Model::setWheelBase(double length) {
   // @TODO: Implement the logic to set the wheel base.
+
 }
 
 /**
  * @brief Set the axle width.
- *
+ *  
  * @param width - The new axle width value.
  */
 void Ackerman_Steering_Model::setAxleWidth(double width) {
   // @TODO: Implement the logic to set the axle width.
+
 }
 
 /**
@@ -123,19 +102,19 @@ void Ackerman_Steering_Model::setAxleWidth(double width) {
  */
 void Ackerman_Steering_Model::setWheelRadius(double radius) {
   // @TODO: Implement the logic to set the wheel radius.
-}
 
+}
 /**
  * @brief Set the steering angle and car velocity based on controller output.
  *
  * @param controllerOutput - An Eigen::Vector2d containing steering angle and
  * car velocity.
  */
-void Ackerman_Steering_Model::setSteeringAngleAndCarVelocity(
-    Eigen::Vector2d controllerOutput) {
+void Ackerman_Steering_Model::AckermanCalc_StateUpdate(
+    Eigen::Vector2d controllerOutput, double dt) {
   // @TODO: Implement the logic to set the steering angle and wheel velocity and
   // also calculate the new vehicle heading and velocity.
-  Eigen::Vector2d ackermanParameters = calcAckermanParameters();
+  
 }
 
 /**
@@ -145,24 +124,5 @@ void Ackerman_Steering_Model::setSteeringAngleAndCarVelocity(
  */
 void Ackerman_Steering_Model::setVehicleState(Eigen::Vector2d State) {
   // @TODO: Implement the logic to set the vehicle state.
-}
-
-/**
- * @brief Calculate Ackerman parameters.
- *
- * @return An Eigen::Vector2d containing calculated parameters.
- */
-Eigen::Vector2d Ackerman_Steering_Model::calcAckermanParameters() {
-  // @TODO: Implement the logic to calculate Ackerman parameters.
-  return Eigen::Vector2d(0, 0);
-}
-
-/**
- * @brief Check angle constraints.
- *
- * @return true if angle constraints are met, false otherwise.
- */
-bool Ackerman_Steering_Model::checkAngleConstraints() {
-  // @TODO: Implement the logic to check angle constraints.
-  return false;  // Modify the return value based on your constraints.
+  VehicleState = State;
 }

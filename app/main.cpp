@@ -1,7 +1,14 @@
 /**
  * @file main.cpp
- * @author Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver, Patrik Pordi
- * (ppordi@umd.edu) - Navigator, Darshit Desai (darshit@umd.edu) - Code designer
+ * @author  Phase 0 - Shivam Sehgal (ssehgal7@umd.edu) - Driver,
+ *                    Patrik Pordi (ppordi@umd.edu) - Navigator,
+ *                    Darshit Desai (darshit@umd.edu) - Code designer
+ *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
+ *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
+ *                    Darshit Desai (darshit@umd.edu) - Driver
+ *          Phase 2 - Shivam Sehgal (ssehgal7@umd.edu) - Code designer,
+ *                    Patrik Pordi (ppordi@umd.edu) - Driver,
+ *                    Darshit Desai (darshit@umd.edu) - Navigator
  * @brief Main file for running the PID and Ackerman Steering Model
  * @version 0.1
  * @date 2023-10-17

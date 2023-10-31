@@ -6,6 +6,9 @@
  *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
  *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
  *                    Darshit Desai (darshit@umd.edu) - Driver
+ *          Phase 2 - Shivam Sehgal (ssehgal7@umd.edu) - Code designer,
+ *                    Patrik Pordi (ppordi@umd.edu) - Driver,
+ *                    Darshit Desai (darshit@umd.edu) - Navigator
  * @brief PID controller header file.
  * @version 0.1
  * @date 2023-10-17
@@ -30,35 +33,30 @@ class PID {
   /**
    * @brief Construct a new PID object
    *
-   * @param Kp
-   * @param Ki
-   * @param Kd
-   * @param dt
    */
-  PID(Eigen::Matrix<double, 2, 1> Kp, Eigen::Matrix<double, 2, 1> Ki,
-      Eigen::Matrix<double, 2, 1> Kd, double dt);
+  PID();
   /**
    * @brief Set the Kp object
    *
-   * @param Kp
+   * @param Kp_
    */
-  void setKp(Eigen::Matrix<double, 2, 1> Kp);
+  void setKp(Eigen::Matrix<double, 2, 1> Kp_);
   /**
    * @brief Set the Ki object
    *
-   * @param Ki
+   * @param Ki_
    */
-  void setKi(Eigen::Matrix<double, 2, 1> Ki);
+  void setKi(Eigen::Matrix<double, 2, 1> Ki_);
   /**
    * @brief Set the Kd object
    *
-   * @param Kd
+   * @param Kd_
    */
-  void setKd(Eigen::Matrix<double, 2, 1> Kd);
+  void setKd(Eigen::Matrix<double, 2, 1> Kd_);
   /**
    * @brief Set the Dt object
    *
-   * @param dt
+   * @param dt_
    */
   void setDt(double dt);
   /**
@@ -86,13 +84,13 @@ class PID {
    */
   double getDt();
   /**
-   * @brief Get the Controller Values object
+   * @brief Controller Loop function for executing the PID controller
    *
    * @param TargetState
    * @param CurrentState
    * @return Eigen::Vector2d
    */
-  Eigen::Vector2d getControllerValues(Eigen::Vector2d TargetState,
+  Eigen::Vector2d ControllerLoop(Eigen::Vector2d TargetState,
                                       Eigen::Vector2d CurrentState);
 
  private:
@@ -100,6 +98,4 @@ class PID {
   Eigen::Matrix<double, 2, 1> Ki;
   Eigen::Matrix<double, 2, 1> Kd;
   double dt;
-  Eigen::Vector2d PrevError;
-  Eigen::Vector2d SumError;
 };
