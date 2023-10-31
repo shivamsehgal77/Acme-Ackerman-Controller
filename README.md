@@ -97,8 +97,18 @@ During Phase 0 we did design and even added the stubs that we had to do for phas
 
 * The Revised UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Revised_Phase2)
 
-* The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase2/acme-ackerman-class-diagram.png)
-![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
+* The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase2/Revised_Phase2_v1/acme-ackerman-class-diagram.png)
+![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase2/Revised_Phase2_v1/acme-ackerman-class-diagram.png)
+
+### Results:
+
+The results for phase 2 are shown below, We have plotted the Heading angle vs time and Car Velocity vs time plots with the set points displayed in a separate color, We gave the setpoint as 20 m/s for Target Velocity and -3.14 radians for Target Heading Angle which means the car will execute a clockwise 180 degree heading change starting at 0 m/s and 0 radians heading.
+
+The results show that the target is achieved in a reasonable amount of time, Our chosen wheelbase, axlewidth and WheelRadius were inspired from Tesla Model S specifications available online.
+
+![Car Velocity vs Time](Results/Visualization/Velocity_vs_Time.png)
+
+![Heading Angle vs Time](Results/Visualization/Heading_Angle_vs_Time.png)
 
 ## Dependencies Installation
 The project requires Eigen3 library installation. Follow the below procedure to install Eigen3 libraries
@@ -108,6 +118,8 @@ The project requires Eigen3 library installation. Follow the below procedure to 
     sudo apt update && sudo apt install -y cmake g++ wget unzip
     # Download and install Eigen 3
     sudo apt-get install libeigen3-dev
+    # Download if it gives gnuplot doesn't exist error
+    sudo apt-get insall gnuplot
 ```
 
 ## Code Build Procedure
