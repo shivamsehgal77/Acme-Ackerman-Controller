@@ -131,11 +131,6 @@ void Ackerman_Steering_Model::AckermanCalc_StateUpdate(
       SteeringAngle[1] = atan(1 / ((AxleWidth / WheelBase) + (1 / tan(SteeringAngle[0]))));
       std::cout << "Steering Angles left turn left wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
     }
-    else if (SteeringAngle[1] > 45 * M_PI / 180) {
-        SteeringAngle[1] = 45 * M_PI / 180;
-        SteeringAngle[0] = atan(1 / (-(AxleWidth / WheelBase) + (1 / tan(SteeringAngle[1]))));
-        std::cout << "Steering Angles left turn right wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
-    }
     WheelVelocity[1] += BaseVelocity;
     dtheta = WheelRadius * WheelVelocity[1] * dt / (TurningRadius + (AxleWidth / 2));
     WheelVelocity[0] = dtheta * (TurningRadius - (AxleWidth / 2)) / (WheelRadius * dt);
@@ -155,11 +150,6 @@ void Ackerman_Steering_Model::AckermanCalc_StateUpdate(
         SteeringAngle[1] = - 45 * M_PI / 180;
         SteeringAngle[0] = -1 * atan(1 / ((AxleWidth / WheelBase) + (1 / std::abs(tan(SteeringAngle[1])))));
         std::cout << "Steering Angles right turn right wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
-    }
-    else if (SteeringAngle[0] < -1 * 45 * M_PI / 180) {
-        SteeringAngle[0] = - 45 * M_PI / 180;
-        SteeringAngle[1] = -1 * atan(1 / (-(AxleWidth / WheelBase) + (1 / std::abs(tan(SteeringAngle[0])))));
-        std::cout << "Steering Angles right turn left wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
     }
     WheelVelocity[0] += BaseVelocity; //Since left wheel is the outer wheel
     dtheta = WheelRadius * WheelVelocity[0] * dt / (TurningRadius + (AxleWidth / 2));
