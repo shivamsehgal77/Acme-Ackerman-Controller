@@ -20,6 +20,7 @@ on:
     branches:
       - main
       - Dev_Iter1Branch
+      - Dev_Iter2Branch
 
   # Triggered whenever a pull request is created on main
   pull_request:
