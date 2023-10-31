@@ -107,22 +107,24 @@ The results for phase 2 are shown below, We have plotted the Heading angle vs ti
 The results show that the target is achieved in a reasonable amount of time, Our chosen wheelbase, axlewidth and WheelRadius were inspired from Tesla Model S specifications available online.
 
 <div align="center">
-  <figure>
-    <img src="Results/Visualization/Velocity_vs_Time.png" alt="Car Velocity vs Time">
-    <img src="Results/Visualization/Heading_Angle_vs_Time.png" alt="Heading Angle vs Time">
-    <figcaption>For Target Inputs 20 m/s (Car Velocity) and -3.14 radians (heading), Plots of Velocity vs time and Heading angle vs time</figcaption>
-  </figure>
+  <img src="Results/Visualization/Velocity_vs_Time.png" alt="Car Velocity vs Time">
 </div>
+
+<div align="center">
+  <img src="Results/Visualization/Heading_Angle_vs_Time.png" alt="Heading Angle vs Time">
+</div>
+
 
 Additional tests show the effectiveness of our controller for edge cases like reverse motion and negative heading, The results are shown below:
 
 <div align="center">
-  <figure>
-    <img src="Results/Visualization/Velocity_vs_Time_Reverse.png" alt="Car Velocity vs Time">
-    <img src="Results/Visualization/Heading_Angle_vs_Time_Reverse.png" alt="Heading Angle vs Time">
-    <figcaption>For Target Inputs -20 m/s (Car Velocity) and -3.14 radians (heading), Plots of Velocity vs time and Heading angle vs time</figcaption>
-  </figure>
+  <img src="Results/Visualization/Velocity_vs_Time_Reverse.png" alt="Car Velocity vs Time">
 </div>
+
+<div align="center">
+  <img src="Results/Visualization/Heading_Angle_vs_Time_Reverse.png" alt="Heading Angle vs Time">
+</div>
+
 
 There are unit tests in the test suite for the same along with the forward only and reverse only testcases.
 
