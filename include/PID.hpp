@@ -22,6 +22,7 @@
 #pragma once
 
 #include <eigen3/Eigen/Core>
+#include <vector>
 #include <iostream>
 
 /**
@@ -90,10 +91,33 @@ class PID {
    * @param CurrentState
    * @return Eigen::Vector2d
    */
+   /**
+   * @brief Get the State Vector object
+   * 
+   * @return std::vector<Eigen::Vector2d> 
+   */
+  std::vector<Eigen::Vector2d> getStateVector();
+
+  /**
+   * @brief Get the Time Vector object
+   * 
+   * @return std::vector<double> 
+   */
+  std::vector<double> getTimeVector();
+
+  /**
+   * @brief Controller Loop function for executing the PID controller
+   * 
+   * @param TargetState 
+   * @param CurrentState 
+   * @return Eigen::Vector2d 
+   */
   Eigen::Vector2d ControllerLoop(Eigen::Vector2d TargetState,
                                       Eigen::Vector2d CurrentState);
 
  private:
+  std::vector<Eigen::Vector2d> State_Vector;
+  std::vector<double> Time_Vector;
   Eigen::Matrix<double, 2, 1> Kp;
   Eigen::Matrix<double, 2, 1> Ki;
   Eigen::Matrix<double, 2, 1> Kd;

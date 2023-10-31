@@ -36,8 +36,12 @@
  * @param Kd - The derivative gain matrix.
  * @param dt - The time step value.
  */
+
 PID::PID() {
   // @TODO : Additional constructor initialization code, if needed
+  // Initalize the State and Time vectors
+  State_Vector.push_back(Eigen::Vector2d(0.0, 0.0));
+  Time_Vector.push_back(0.0);
 }
 
 /**
@@ -119,6 +123,22 @@ double PID::getDt() {
   // @TODO: Implement the logic to get the time step.
   return dt;
 }
+/**
+ * @brief Get the state vector object
+ * 
+ * @return std::vector<Eigen::Vector2d> 
+ */
+std::vector<Eigen::Vector2d> PID::getStateVector() {
+  return State_Vector;
+}
+/**
+ * @brief Get the time vector object
+ * 
+ * @return std::vector<double> 
+ */
+std::vector<double> PID::getTimeVector() {
+  return Time_Vector;
+}
 
 /**
  * @brief Controller loop for executing the PID controller.
@@ -142,6 +162,8 @@ Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
   error_history.push_back(error);
   Eigen::Vector2d error_diff{0, 0};
   double total_time{0};
+  State_Vector.push_back(CurrentState); // State vector for plotting
+  Time_Vector.push_back(total_time); // Time vector for plotting
   while (error.norm() > 0.1) {
     Eigen::Vector2d error_sum{0, 0};
     if (error_history.size() > 1) { 
@@ -161,6 +183,8 @@ Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
     error = TargetState - CurrentState;
     error_history.push_back(error);
     total_time+=dt;
+    State_Vector.push_back(CurrentState); // State vector for plotting
+    Time_Vector.push_back(total_time); // Time vector for plotting
     std::cout << "Output: " << output << std::endl;
     std::cout << "Current State, Velocity: " << CurrentState[0] << " Current State, Heading:" << CurrentState[1] << " Time in seconds: " << total_time << std::endl;
   }

@@ -356,4 +356,22 @@ TEST(Ackerman_Steering_Model, getVehicleState) {
   ackerman.setVehicleState(vehicleState);
   EXPECT_EQ(ackerman.getVehicleState(), vehicleState);
 }
+/**
+ * @brief Write a test to check whether TimeVector is empty or not in PID.hpp
+ *
+ */
+ TEST(PID, CheckTimeVectorEmpty) {
+  PID pid;
+  // Check if the time vector is empty or not
+  ASSERT_FALSE(pid.getTimeVector().empty());
+ }
+ /**
+ * @brief Write a test to check whether StateVector is empty or not in PID.hpp
+ *
+ */
+ TEST(PID, CheckStateVectorEmpty) {
+  PID pid;
+  // Check if the time vector is empty or not
+  ASSERT_FALSE(pid.getStateVector().empty());
+ }
 
