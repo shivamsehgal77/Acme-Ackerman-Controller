@@ -21,20 +21,21 @@
 
 #include "../include/ackerman.hpp"
 
-#include <eigen3/Eigen/src/Core/Matrix.h>
+
+#include <math.h>
 
 #include <eigen3/Eigen/Core>
 #include <iostream>
 #include <vector>
-#include <math.h>
 
-/**
- * @brief Construct a new Ackerman_Steering_Model object
- *
- */
-Ackerman_Steering_Model::Ackerman_Steering_Model() {
-  WheelVelocity = {0, 0};
-
+Ackerman_Steering_Model::Ackerman_Steering_Model()
+    : WheelBase(0.0),    // Initialize WheelBase to the desired value
+      AxleWidth(0.0),    // Initialize AxleWidth to the desired value
+      WheelRadius(0.0),  // Initialize WheelRadius to the desired value
+      WheelVelocity{0, 0}
+// Initialize WheelVelocity in the member initializer list
+{
+  // Additional constructor initialization code, if needed
 }
 
 /**
@@ -89,7 +90,7 @@ void Ackerman_Steering_Model::setWheelBase(double length) {
 
 /**
  * @brief Set the axle width.
- *  
+ *
  * @param width - The new axle width value.
  */
 void Ackerman_Steering_Model::setAxleWidth(double width) {
@@ -123,57 +124,72 @@ void Ackerman_Steering_Model::AckermanCalc_StateUpdate(
   if (BaseAngle > 0.001) {
     TurningRadius = WheelBase / tan(BaseAngle);
     // Index 0  corresponds to left wheel and Index 1 corresponds to right wheel
-    SteeringAngle[0] = atan(WheelBase / (TurningRadius - (AxleWidth / 2))); //Left = inner wheel
-    SteeringAngle[1] = atan(WheelBase / (TurningRadius + (AxleWidth / 2))); //right = outer wheel
-    std::cout << "Steering Angles left turn: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
+    SteeringAngle[0] = atan(
+        WheelBase / (TurningRadius - (AxleWidth / 2)));  // Left = inner wheel
+    SteeringAngle[1] = atan(
+        WheelBase / (TurningRadius + (AxleWidth / 2)));  // right = outer wheel
+    std::cout << "Steering Angles left turn: " << SteeringAngle[0] << " "
+              << SteeringAngle[1] << std::endl;
     if (SteeringAngle[0] > 45 * M_PI / 180) {
       SteeringAngle[0] = 45 * M_PI / 180;
-      SteeringAngle[1] = atan(1 / ((AxleWidth / WheelBase) + (1 / tan(SteeringAngle[0]))));
-      std::cout << "Steering Angles left turn left wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
+      SteeringAngle[1] =
+          atan(1 / ((AxleWidth / WheelBase) + (1 / tan(SteeringAngle[0]))));
+      std::cout << "Steering Angles left turn left wheel >45: "
+                << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
     }
     WheelVelocity[1] += BaseVelocity;
-    dtheta = WheelRadius * WheelVelocity[1] * dt / (TurningRadius + (AxleWidth / 2));
-    WheelVelocity[0] = dtheta * (TurningRadius - (AxleWidth / 2)) / (WheelRadius * dt);
+    dtheta =
+        WheelRadius * WheelVelocity[1] * dt / (TurningRadius + (AxleWidth / 2));
+    WheelVelocity[0] =
+        dtheta * (TurningRadius - (AxleWidth / 2)) / (WheelRadius * dt);
     Eigen::Vector2d State = getVehicleState();
     // State[0] = std::abs(TurningRadius * dtheta) / dt;
     State[0] = TurningRadius * dtheta / dt;
     State[1] = State[1] + dtheta;
-    setVehicleState(State);    
-  } 
-  else if (BaseAngle < -0.001) {
-    TurningRadius = std::abs(WheelBase / tan(BaseAngle));   
+    setVehicleState(State);
+  } else if (BaseAngle < -0.001) {
+    TurningRadius = std::abs(WheelBase / tan(BaseAngle));
     // Index 0  corresponds to left wheel and Index 1 corresponds to right wheel
-    SteeringAngle[0] = -1 * atan(WheelBase / (TurningRadius + (AxleWidth / 2))); //Left = outer wheel
-    SteeringAngle[1] = -1 * atan(WheelBase / (TurningRadius - (AxleWidth / 2))); //right = inner wheel
-    std::cout << "Steering Angles right turn: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
+    SteeringAngle[0] =
+        -1 * atan(WheelBase /
+                  (TurningRadius + (AxleWidth / 2)));  // Left = outer wheel
+    SteeringAngle[1] =
+        -1 * atan(WheelBase /
+                  (TurningRadius - (AxleWidth / 2)));  // right = inner wheel
+    std::cout << "Steering Angles right turn: " << SteeringAngle[0] << " "
+              << SteeringAngle[1] << std::endl;
     if (SteeringAngle[1] < -1 * 45 * M_PI / 180) {
-        SteeringAngle[1] = - 45 * M_PI / 180;
-        SteeringAngle[0] = -1 * atan(1 / ((AxleWidth / WheelBase) + (1 / std::abs(tan(SteeringAngle[1])))));
-        std::cout << "Steering Angles right turn right wheel >45: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
+      SteeringAngle[1] = -45 * M_PI / 180;
+      SteeringAngle[0] = -1 * atan(1 / ((AxleWidth / WheelBase) +
+                                        (1 / std::abs(tan(SteeringAngle[1])))));
+      std::cout << "Steering Angles right turn right wheel >45: "
+                << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
     }
-    WheelVelocity[0] += BaseVelocity; //Since left wheel is the outer wheel
-    dtheta = WheelRadius * WheelVelocity[0] * dt / (TurningRadius + (AxleWidth / 2));
-    WheelVelocity[1] = dtheta * (TurningRadius - (AxleWidth / 2)) / (WheelRadius * dt);
+    WheelVelocity[0] += BaseVelocity;  // Since left wheel is the outer wheel
+    dtheta =
+        WheelRadius * WheelVelocity[0] * dt / (TurningRadius + (AxleWidth / 2));
+    WheelVelocity[1] =
+        dtheta * (TurningRadius - (AxleWidth / 2)) / (WheelRadius * dt);
     Eigen::Vector2d State = getVehicleState();
     // State[0] = std::abs(TurningRadius * dtheta) / dt;
     State[0] = TurningRadius * dtheta / dt;
     State[1] = State[1] - dtheta;
-    setVehicleState(State); 
+    setVehicleState(State);
   } else {
-    std::cout << "Steering Angles straight: " << SteeringAngle[0] << " " << SteeringAngle[1] << std::endl;
+    std::cout << "Steering Angles straight: " << SteeringAngle[0] << " "
+              << SteeringAngle[1] << std::endl;
     SteeringAngle = {0, 0};
     if (WheelVelocity[0] >= WheelVelocity[1]) {
       WheelVelocity[1] += BaseVelocity;
       WheelVelocity[0] = WheelVelocity[1];
-    }
-    else {
+    } else {
       WheelVelocity[0] += BaseVelocity;
       WheelVelocity[1] = WheelVelocity[0];
     }
     Eigen::Vector2d State = getVehicleState();
     State[0] = WheelVelocity[0] * WheelRadius;
-    State[1] = State[1];
-    setVehicleState(State);    
+    State[1] = State[1] + 0.0;
+    setVehicleState(State);
   }
 }
 

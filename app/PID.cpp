@@ -21,9 +21,9 @@
 
 #include "../include/PID.hpp"
 
-#include <Eigen/src/Core/Matrix.h>
-#include <eigen3/Eigen/Core>
 
+#include <eigen3/Eigen/Core>
+#include <numeric>
 #include <vector>
 
 #include "../include/ackerman.hpp"
@@ -31,15 +31,11 @@
 /**
  * @brief Construct a new PID object.
  *
- * @param Kp - The proportional gain matrix.
- * @param Ki - The integral gain matrix.
- * @param Kd - The derivative gain matrix.
- * @param dt - The time step value.
  */
 
-PID::PID() {
-  // @TODO : Additional constructor initialization code, if needed
-  // Initalize the State and Time vectors
+PID::PID() : dt(0.0) {
+  // Additional constructor initialization code, if needed
+  // Initialize the State and Time vectors
   State_Vector.push_back(Eigen::Vector2d(0.0, 0.0));
   Time_Vector.push_back(0.0);
 }
@@ -125,20 +121,16 @@ double PID::getDt() {
 }
 /**
  * @brief Get the state vector object
- * 
- * @return std::vector<Eigen::Vector2d> 
+ *
+ * @return std::vector<Eigen::Vector2d>
  */
-std::vector<Eigen::Vector2d> PID::getStateVector() {
-  return State_Vector;
-}
+std::vector<Eigen::Vector2d> PID::getStateVector() { return State_Vector; }
 /**
  * @brief Get the time vector object
- * 
- * @return std::vector<double> 
+ *
+ * @return std::vector<double>
  */
-std::vector<double> PID::getTimeVector() {
-  return Time_Vector;
-}
+std::vector<double> PID::getTimeVector() { return Time_Vector; }
 
 /**
  * @brief Controller loop for executing the PID controller.
@@ -148,7 +140,7 @@ std::vector<double> PID::getTimeVector() {
  * @return Eigen::Vector2d - The controller output as an Eigen::Vector2d.
  */
 Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
-                                         Eigen::Vector2d CurrentState) {
+                                    Eigen::Vector2d CurrentState) {
   // @TODO: Implement the controller logic to calculate and return the
   // controller output.
   Eigen::Vector2d error{0, 0};
@@ -162,14 +154,16 @@ Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
   error_history.push_back(error);
   Eigen::Vector2d error_diff{0, 0};
   double total_time{0};
-  State_Vector.push_back(CurrentState); // State vector for plotting
-  Time_Vector.push_back(total_time); // Time vector for plotting
+  State_Vector.push_back(CurrentState);  // State vector for plotting
+  Time_Vector.push_back(total_time);     // Time vector for plotting
   while (error.norm() > 0.1) {
     Eigen::Vector2d error_sum{0, 0};
-    if (error_history.size() > 1) { 
-      for (auto i : error_history) {
-        error_sum += i;
-      }
+    if (error_history.size() > 1) {
+      // for (auto i : error_history) {
+      //   error_sum += i;
+      // }
+      error_sum = std::accumulate(error_history.begin(), error_history.end(),
+                                  Eigen::Vector2d{0, 0});
       error_diff = error - error_history.at(error_history.size() - 2);
     }
     Eigen::Vector2d output = Kp.cwiseProduct(error) +
@@ -179,14 +173,16 @@ Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
       output[1] = -output[1];
     }
     ackerman.AckermanCalc_StateUpdate(output, dt);
-    CurrentState =  ackerman.getVehicleState();
+    CurrentState = ackerman.getVehicleState();
     error = TargetState - CurrentState;
     error_history.push_back(error);
-    total_time+=dt;
-    State_Vector.push_back(CurrentState); // State vector for plotting
-    Time_Vector.push_back(total_time); // Time vector for plotting
+    total_time += dt;
+    State_Vector.push_back(CurrentState);  // State vector for plotting
+    Time_Vector.push_back(total_time);     // Time vector for plotting
     std::cout << "Output: " << output << std::endl;
-    std::cout << "Current State, Velocity: " << CurrentState[0] << " Current State, Heading:" << CurrentState[1] << " Time in seconds: " << total_time << std::endl;
+    std::cout << "Current State, Velocity: " << CurrentState[0]
+              << " Current State, Heading:" << CurrentState[1]
+              << " Time in seconds: " << total_time << std::endl;
   }
-  return CurrentState;  
+  return CurrentState;
 }

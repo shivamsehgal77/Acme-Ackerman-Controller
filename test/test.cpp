@@ -76,7 +76,8 @@ TEST(PID, setDt) {
   ASSERT_DOUBLE_EQ(pid.getDt(), dt);
 }
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for forward and left turn
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward and left turn
  *
  */
 TEST(PID, ForwardMotionLeftTurn) {
@@ -97,14 +98,16 @@ TEST(PID, ForwardMotionLeftTurn) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for forward and 180 degree turn
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward and 180 degree turn
  *
  */
 TEST(PID, ForwardMotion180) {
@@ -125,14 +128,16 @@ TEST(PID, ForwardMotion180) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for forward motion and right turn
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion and right turn
  *
  */
 TEST(PID, ForwardMotionRightTurn) {
@@ -153,13 +158,15 @@ TEST(PID, ForwardMotionRightTurn) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for forward motion and Heading 180
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion and Heading 180
  *
  */
 TEST(PID, ForwardMotionHeading180) {
@@ -180,14 +187,16 @@ TEST(PID, ForwardMotionHeading180) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for forward motion only
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion only
  *
  */
 TEST(PID, ForwardMotionOnly) {
@@ -208,14 +217,16 @@ TEST(PID, ForwardMotionOnly) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for Reverse motion only
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion only
  *
  */
 TEST(PID, ReverseMotionOnly) {
@@ -236,14 +247,16 @@ TEST(PID, ReverseMotionOnly) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for Reverse motion and Left turn
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion and Left turn
  *
  */
 TEST(PID, ReverseMotionLeftTest) {
@@ -264,14 +277,16 @@ TEST(PID, ReverseMotionLeftTest) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
- * @brief Write a test to check PID controller and ackerman steering functionality for Reverse motion and Right turn
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion and Right turn
  *
  */
 TEST(PID, ReverseMotionRightTest) {
@@ -292,7 +307,8 @@ TEST(PID, ReverseMotionRightTest) {
   Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
   Eigen::Vector2d controllerOutput;
   controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
-  //Check output vector elements are in certain range or not or the error norm between Target and output < 0.1
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
   Eigen::Vector2d error;
   error = TargetState - controllerOutput;
   EXPECT_LT(error.norm(), 0.1);
@@ -339,12 +355,16 @@ TEST(Ackerman_Steering_Model, AckermanCalc_StateUpdate) {
   ackerman.setAxleWidth(2.0);
   ackerman.setWheelBase(4.0);
   ackerman.setWheelRadius(0.225);
-  Eigen::Vector2d controllerOutput{1.5, 0.15}; //Considering the same PID parameters in earlier test cases and target velocity and heading angle of 5 and 0.5 respectively
+  Eigen::Vector2d controllerOutput{
+      1.5,
+      0.15};  // Considering the same PID parameters in earlier test cases and
+              // target velocity and heading angle of 5 and 0.5 respectively
   double dt = 0.1;
   ackerman.AckermanCalc_StateUpdate(controllerOutput, dt);
-  Eigen::Vector2d state = ackerman.getVehicleState();  
+  Eigen::Vector2d state = ackerman.getVehicleState();
   EXPECT_NEAR(state[0], 0.325, 0.01);
-  EXPECT_GT(state[1], 0); //Checks heading is >0 since we set it to left turn which is positive
+  EXPECT_GT(state[1], 0);  // Checks heading is >0 since we set it to left turn
+                           // which is positive
 }
 /**
  * @brief Write a test to check get vehicle state function in ackerman.hpp
@@ -360,18 +380,17 @@ TEST(Ackerman_Steering_Model, getVehicleState) {
  * @brief Write a test to check whether TimeVector is empty or not in PID.hpp
  *
  */
- TEST(PID, CheckTimeVectorEmpty) {
+TEST(PID, CheckTimeVectorEmpty) {
   PID pid;
   // Check if the time vector is empty or not
   ASSERT_FALSE(pid.getTimeVector().empty());
- }
- /**
+}
+/**
  * @brief Write a test to check whether StateVector is empty or not in PID.hpp
  *
  */
- TEST(PID, CheckStateVectorEmpty) {
+TEST(PID, CheckStateVectorEmpty) {
   PID pid;
   // Check if the time vector is empty or not
   ASSERT_FALSE(pid.getStateVector().empty());
- }
-
+}
