@@ -108,14 +108,14 @@ int main() {
     matplot::title("Velocity vs Time");
     matplot::xlabel("Time");
     matplot::ylabel("Velocity");
-    matplot::save("Velocity_vs_Time.png");
+    matplot::save("Results/Visualization/Velocity_vs_Time.png");
 
     // plotting the heading angle vs time    
     matplot::plot(plot_time,plot_heading_angle,"-r",plot_time,target_heading_angle,"-b");
     matplot::title("Heading Angle vs Time");
     matplot::xlabel("Time");
     matplot::ylabel("Heading Angle");
-    matplot::save("Heading_Angle_vs_Time.png");
+    matplot::save("Results/Visualization/Heading_Angle_vs_Time.png");
 
     return 0; 
 }
