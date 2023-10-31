@@ -18,9 +18,10 @@ target_include_directories(shell-app PUBLIC
 target_link_libraries(shell-app PUBLIC
   # list of libraries
   Eigen3::Eigen
+  matplot
   )
 
 target_link_options(shell-app PUBLIC
-  --static
+
   )
   
