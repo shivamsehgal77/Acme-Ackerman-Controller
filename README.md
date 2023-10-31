@@ -17,10 +17,22 @@ The three basic components for a functioning robotic system are perception, plan
 2. [Shivam Sehgal](https://www.github.com/shivamsehgal77) - Driver
 3. [Darshit Desai](https://www.github.com/darshit-desai) - Code designer
 
-### Phase 1 (Changes coming soon for this phase)
+### Phase 1
 1. [Patrik Pordi](https://www.github.com/patrikpordi) - Code designer
 2. [Shivam Sehgal](https://www.github.com/shivamsehgal77) - Navigator
 3. [Darshit Desai](https://www.github.com/darshit-desai) - Driver
+
+### Phase 2
+
+#### VisualizationBranch (Merged with Dev_Iter2Branch)
+1. [Patrik Pordi](https://www.github.com/patrikpordi) - Code designer
+2. [Shivam Sehgal](https://www.github.com/shivamsehgal77) - Driver
+3. [Darshit Desai](https://www.github.com/darshit-desai) - Navigator
+
+#### Dev_Iter2Branch (Merged in Main)
+1. [Patrik Pordi](https://www.github.com/patrikpordi) - Driver
+2. [Shivam Sehgal](https://www.github.com/shivamsehgal77) - Code designer
+3. [Darshit Desai](https://www.github.com/darshit-desai) - Navigator
 
 ## Phase 0:
 
