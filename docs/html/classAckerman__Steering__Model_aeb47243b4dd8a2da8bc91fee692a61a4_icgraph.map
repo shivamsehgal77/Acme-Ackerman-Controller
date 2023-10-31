@@ -1,0 +1,6 @@
+<map id="Ackerman_Steering_Model::getVehicleState" name="Ackerman_Steering_Model::getVehicleState">
+<area shape="rect" id="node1" title="Get the Vehicle State object." alt="" coords="561,35,756,76"/>
+<area shape="rect" id="node2" href="$classAckerman__Steering__Model.html#a27ac42e2003e2ced87afc9f128974573" title="Ackerman parameter calculations and state update." alt="" coords="303,5,513,47"/>
+<area shape="rect" id="node3" href="$classPID.html#a1e584c25df95833d7f47be2bb19a5e03" title="Controller Loop function for executing the PID controller." alt="" coords="108,42,255,69"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,42,60,69"/>
+</map>

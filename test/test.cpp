@@ -6,6 +6,9 @@
  *          Phase 1 - Shivam Sehgal (ssehgal7@umd.edu) - Navigator,
  *                    Patrik Pordi (ppordi@umd.edu) - Code designer,
  *                    Darshit Desai (darshit@umd.edu) - Driver
+ *          Phase 2 - Shivam Sehgal (ssehgal7@umd.edu) - Code designer,
+ *                    Patrik Pordi (ppordi@umd.edu) - Driver,
+ *                    Darshit Desai (darshit@umd.edu) - Navigator
  * @brief Test file for PID and Ackerman Steering Model
  * @version 0.1
  * @date 2023-10-23
@@ -28,7 +31,7 @@
 TEST(PID, setKp) {
   Eigen::Matrix<double, 2, 1> Kp;
   Kp = Eigen::Vector2d(1, 2);
-  PID pid(Kp, Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), 0.0);
+  PID pid;
   pid.setKp(Kp);
 
   // Check if the Kp values are set correctly
@@ -41,7 +44,7 @@ TEST(PID, setKp) {
 TEST(PID, setKi) {
   Eigen::Matrix<double, 2, 1> Ki;
   Ki = Eigen::Vector2d(1, 2);
-  PID pid(Eigen::Vector2d::Zero(), Ki, Eigen::Vector2d::Zero(), 0.0);
+  PID pid;
   pid.setKi(Ki);
 
   // Check if the Ki values are set correctly
@@ -54,7 +57,7 @@ TEST(PID, setKi) {
 TEST(PID, setKd) {
   Eigen::Matrix<double, 2, 1> Kd;
   Kd = Eigen::Vector2d(1, 2);
-  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(), Kd, 0.0);
+  PID pid;
   pid.setKd(Kd);
 
   // Check if the Kd values are set correctly
@@ -66,33 +69,249 @@ TEST(PID, setKd) {
  */
 TEST(PID, setDt) {
   double dt = 0.1;
-  PID pid(Eigen::Vector2d::Zero(), Eigen::Vector2d::Zero(),
-          Eigen::Vector2d::Zero(), dt);
+  PID pid;
   pid.setDt(dt);
 
   // Check if the dt value is set correctly
   ASSERT_DOUBLE_EQ(pid.getDt(), dt);
 }
 /**
- * @brief Write a test to check get controller values function in PID.hpp
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward and left turn
  *
  */
-TEST(PID, getControllerValues) {
-  Eigen::Matrix<double, 2, 1> Kp;
-  Kp = Eigen::Vector2d(1, 2);
-  Eigen::Matrix<double, 2, 1> Ki;
-  Ki = Eigen::Vector2d(1, 2);
-  Eigen::Matrix<double, 2, 1> Kd;
-  Kd = Eigen::Vector2d(1, 2);
-  double dt = 0.1;
-  PID pid(Kp, Ki, Kd, dt);
-  Eigen::Matrix<double, 2, 1> controllerValues;
-  Eigen::Vector2d TargetState(1, 2);
-  Eigen::Vector2d CurrentState(1, 2);
-  controllerValues = pid.getControllerValues(TargetState, CurrentState);
+TEST(PID, ForwardMotionLeftTurn) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = 5.0;
+  TargetHeadingAngle = 0.5;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
 
-  // Use Eigen's isApprox function to compare matrices with tolerance
-  ASSERT_TRUE(controllerValues.isApprox(Eigen::Matrix<double, 2, 1>::Zero()));
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward and 180 degree turn
+ *
+ */
+TEST(PID, ForwardMotion180) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = 20.0;
+  TargetHeadingAngle = 3.14;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion and right turn
+ *
+ */
+TEST(PID, ForwardMotionRightTurn) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = 5.0;
+  TargetHeadingAngle = -0.5;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion and Heading 180
+ *
+ */
+TEST(PID, ForwardMotionHeading180) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = 5.0;
+  TargetHeadingAngle = -3.14;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for forward motion only
+ *
+ */
+TEST(PID, ForwardMotionOnly) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = 20.0;
+  TargetHeadingAngle = 0.0;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion only
+ *
+ */
+TEST(PID, ReverseMotionOnly) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = -5.0;
+  TargetHeadingAngle = 0.0;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion and Left turn
+ *
+ */
+TEST(PID, ReverseMotionLeftTest) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = -5.0;
+  TargetHeadingAngle = 0.5;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
+}
+
+/**
+ * @brief Write a test to check PID controller and ackerman steering
+ * functionality for Reverse motion and Right turn
+ *
+ */
+TEST(PID, ReverseMotionRightTest) {
+  PID pid;
+  Eigen::Matrix<double, 2, 1> Kp{0.3, 0.3};
+  Eigen::Matrix<double, 2, 1> Ki{0.1, 0.1};
+  Eigen::Matrix<double, 2, 1> Kd{0.05, 0.05};
+  double dt{0.1};
+  pid.setKp(Kp);
+  pid.setKi(Ki);
+  pid.setKd(Kd);
+  pid.setDt(dt);
+  double TargetVelocity{0};
+  double TargetHeadingAngle{0};
+  Eigen::Vector2d CurrentState{0, 0};
+  TargetVelocity = -5.0;
+  TargetHeadingAngle = -0.5;
+  Eigen::Vector2d TargetState{TargetVelocity, TargetHeadingAngle};
+  Eigen::Vector2d controllerOutput;
+  controllerOutput = pid.ControllerLoop(TargetState, CurrentState);
+  // Check output vector elements are in certain range or not or the error norm
+  // between Target and output < 0.1
+  Eigen::Vector2d error;
+  error = TargetState - controllerOutput;
+  EXPECT_LT(error.norm(), 0.1);
 }
 
 /**
@@ -100,14 +319,8 @@ TEST(PID, getControllerValues) {
  *
  */
 TEST(Ackerman_Steering_Model, getWheelRadius) {
-  double wheelBase = 1.0;
-  double axleWidth = 0.5;
   double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
+  Ackerman_Steering_Model ackerman;
   ackerman.setWheelRadius(wheelRadius);
   EXPECT_EQ(ackerman.getWheelRadius(), wheelRadius);
 }
@@ -117,13 +330,7 @@ TEST(Ackerman_Steering_Model, getWheelRadius) {
  */
 TEST(Ackerman_Steering_Model, getWheelBase) {
   double wheelBase = 1.0;
-  double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
+  Ackerman_Steering_Model ackerman;
   ackerman.setWheelBase(wheelBase);
   EXPECT_EQ(ackerman.getWheelBase(), wheelBase);
 }
@@ -133,84 +340,57 @@ TEST(Ackerman_Steering_Model, getWheelBase) {
  *
  */
 TEST(Ackerman_Steering_Model, getAxleWidth) {
-  double wheelBase = 1.0;
   double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
+  Ackerman_Steering_Model ackerman;
   ackerman.setAxleWidth(axleWidth);
   EXPECT_EQ(ackerman.getAxleWidth(), axleWidth);
-}
-
-/**
- * @brief Write a test to check get steering angle function in ackerman.hpp
- *
- */
-TEST(Ackerman_Steering_Model, getSteeringAngle) {
-  double wheelBase = 1.0;
-  double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
-  EXPECT_EQ(ackerman.getSteeringAngle(), steeringAngle);
 }
 
 /**
  * @brief Write a test to check setSteeringAngleAndCarVelocity Function
  *
  */
-TEST(Ackerman_Steering_Model, setSteeringAngleAndCarVelocity) {
-  double wheelBase = 1.0;
-  double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
-  Eigen::Vector2d pidoutput;
-  pidoutput = Eigen::Vector2d(0, 0);
-  ackerman.setSteeringAngleAndCarVelocity(pidoutput);
-  EXPECT_EQ(ackerman.getSteeringAngle(), steeringAngle);
+TEST(Ackerman_Steering_Model, AckermanCalc_StateUpdate) {
+  Ackerman_Steering_Model ackerman;
+  ackerman.setAxleWidth(2.0);
+  ackerman.setWheelBase(4.0);
+  ackerman.setWheelRadius(0.225);
+  Eigen::Vector2d controllerOutput{
+      1.5,
+      0.15};  // Considering the same PID parameters in earlier test cases and
+              // target velocity and heading angle of 5 and 0.5 respectively
+  double dt = 0.1;
+  ackerman.AckermanCalc_StateUpdate(controllerOutput, dt);
+  Eigen::Vector2d state = ackerman.getVehicleState();
+  EXPECT_NEAR(state[0], 0.325, 0.01);
+  EXPECT_GT(state[1], 0);  // Checks heading is >0 since we set it to left turn
+                           // which is positive
 }
 /**
  * @brief Write a test to check get vehicle state function in ackerman.hpp
  *
  */
 TEST(Ackerman_Steering_Model, getVehicleState) {
-  double wheelBase = 1.0;
-  double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
   Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model ackerman(wheelBase, axleWidth, wheelRadius,
-                                   steeringAngle, wheelVelocity, vehicleState);
+  Ackerman_Steering_Model ackerman;
   ackerman.setVehicleState(vehicleState);
   EXPECT_EQ(ackerman.getVehicleState(), vehicleState);
 }
-
 /**
- * @brief Write a test for checkAngleConstraints function
+ * @brief Write a test to check whether TimeVector is empty or not in PID.hpp
  *
  */
-TEST(CheckAngleConstraintsTest, InvalidAngleConstraints) {
-  double wheelBase = 1.0;
-  double axleWidth = 0.5;
-  double wheelRadius = 0.2;
-  Eigen::Vector2d steeringAngle(0.1, 0.2);
-  Eigen::Vector2d wheelVelocity(2.0, 1.5);
-  Eigen::Vector2d vehicleState(0.0, 0.0);
-  Ackerman_Steering_Model model(wheelBase, axleWidth, wheelRadius,
-                                steeringAngle, wheelVelocity, vehicleState);
-  // Assuming that your function should return false when angle constraints are
-  // not met
-  bool result = model.checkAngleConstraints();
-  EXPECT_FALSE(result);
+TEST(PID, CheckTimeVectorEmpty) {
+  PID pid;
+  // Check if the time vector is empty or not
+  ASSERT_FALSE(pid.getTimeVector().empty());
+}
+/**
+ * @brief Write a test to check whether StateVector is empty or not in PID.hpp
+ *
+ */
+TEST(PID, CheckStateVectorEmpty) {
+  PID pid;
+  // Check if the time vector is empty or not
+  ASSERT_FALSE(pid.getStateVector().empty());
 }

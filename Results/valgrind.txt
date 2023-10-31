@@ -1,0 +1,481 @@
+==89537== Memcheck, a memory error detector
+==89537== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==89537== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==89537== Command: ./build/app/shell-app
+==89537== 
+Enter the Vehicle's Target State: 
+Enter the Target Velocity = 
+Enter the Target Heading Angle = 
+Steering Angles right turn: -0.796892 -1.1255
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:      6
+-0.942
+Current State, Velocity: 1.00465 Current State, Heading:-0.0345349 Time in seconds: 0.1
+Steering Angles right turn: -0.824167 -1.16865
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.58623
+-0.976827
+Current State, Velocity: 1.90258 Current State, Heading:-0.104967 Time in seconds: 0.2
+Steering Angles right turn: -0.817323 -1.15788
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.55119
+-0.968099
+Current State, Velocity: 2.82834 Current State, Heading:-0.207726 Time in seconds: 0.3
+Steering Angles right turn: -0.803487 -1.13598
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.43126
+-0.950431
+Current State, Velocity: 3.76169 Current State, Heading:-0.339352 Time in seconds: 0.4
+Steering Angles right turn: -0.783226 -1.10367
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.30985
+-0.924515
+Current State, Velocity: 4.7113 Current State, Heading:-0.495489 Time in seconds: 0.5
+Steering Angles right turn: -0.757744 -1.06267
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.16972
+-0.891864
+Current State, Velocity: 5.67697 Current State, Heading:-0.671378 Time in seconds: 0.6
+Steering Angles right turn: -0.728155 -1.01466
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   5.01522
+-0.853908
+Current State, Velocity: 6.6553 Current State, Heading:-0.862276 Time in seconds: 0.7
+Steering Angles right turn: -0.695422 -0.96119
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   4.84883
+-0.811911
+Current State, Velocity: 7.64096 Current State, Heading:-1.06371 Time in seconds: 0.8
+Steering Angles right turn: -0.660357 -0.903701
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   4.67307
+-0.766978
+Current State, Velocity: 8.6278 Current State, Heading:-1.2716 Time in seconds: 0.9
+Steering Angles right turn: -0.623639 -0.843525
+Steering Angles right turn right wheel >45: -0.588003 -0.785398
+Output:   4.49015
+-0.720064
+Current State, Velocity: 9.60964 Current State, Heading:-1.48233 Time in seconds: 1
+Steering Angles right turn: -0.58584 -0.781885
+Output:   4.30199
+-0.671999
+Current State, Velocity: 10.5807 Current State, Heading:-1.69276 Time in seconds: 1.1
+Steering Angles right turn: -0.547446 -0.719884
+Output:   4.11028
+-0.623497
+Current State, Velocity: 11.5356 Current State, Heading:-1.90017 Time in seconds: 1.2
+Steering Angles right turn: -0.508874 -0.658496
+Output:  3.91647
+-0.57518
+Current State, Velocity: 12.4699 Current State, Heading:-2.10228 Time in seconds: 1.3
+Steering Angles right turn: -0.470491 -0.598553
+Output:   3.72185
+-0.527578
+Current State, Velocity: 13.3794 Current State, Heading:-2.29717 Time in seconds: 1.4
+Steering Angles right turn: -0.432618 -0.540737
+Output:   3.52755
+-0.481144
+Current State, Velocity: 14.2608 Current State, Heading:-2.4833 Time in seconds: 1.5
+Steering Angles right turn: -0.395542 -0.48558
+Output:   3.33462
+-0.436256
+Current State, Velocity: 15.1111 Current State, Heading:-2.65942 Time in seconds: 1.6
+Steering Angles right turn: -0.359517 -0.433471
+Output:   3.14395
+-0.393225
+Current State, Velocity: 15.9279 Current State, Heading:-2.82461 Time in seconds: 1.7
+Steering Angles right turn: -0.324765 -0.384671
+Output:   2.95638
+-0.352294
+Current State, Velocity: 16.7092 Current State, Heading:-2.97818 Time in seconds: 1.8
+Steering Angles right turn: -0.291481 -0.339325
+Output:   2.77263
+-0.313648
+Current State, Velocity: 17.4535 Current State, Heading:-3.11971 Time in seconds: 1.9
+Steering Angles right turn: -0.259823 -0.297484
+Output:   2.59334
+-0.277414
+Current State, Velocity: 18.1595 Current State, Heading:-3.24898 Time in seconds: 2
+Steering Angles right turn: -0.229921 -0.259123
+Output:   2.41906
+-0.243667
+Current State, Velocity: 18.8265 Current State, Heading:-3.36599 Time in seconds: 2.1
+Steering Angles right turn: -0.201869 -0.224154
+Output:   2.25025
+-0.212437
+Current State, Velocity: 19.4539 Current State, Heading:-3.47089 Time in seconds: 2.2
+Steering Angles right turn: -0.175728 -0.192448
+Output:   2.08727
+-0.183713
+Current State, Velocity: 20.0415 Current State, Heading:-3.56399 Time in seconds: 2.3
+Steering Angles right turn: -0.151529 -0.163839
+Output:   1.93041
+-0.157446
+Current State, Velocity: 20.5897 Current State, Heading:-3.64571 Time in seconds: 2.4
+Steering Angles right turn: -0.129269 -0.138145
+Output:   1.77987
+-0.133561
+Current State, Velocity: 21.0986 Current State, Heading:-3.71658 Time in seconds: 2.5
+Steering Angles right turn: -0.108922 -0.115168
+Output:   1.63576
+-0.111959
+Current State, Velocity: 21.5691 Current State, Heading:-3.77721 Time in seconds: 2.6
+Steering Angles right turn: -0.0904361 -0.0947063
+Output:    1.49815
+-0.0925221
+Current State, Velocity: 22.0021 Current State, Heading:-3.82824 Time in seconds: 2.7
+Steering Angles right turn: -0.0737396 -0.0765569
+Output:    1.36702
+-0.0751219
+Current State, Velocity: 22.3986 Current State, Heading:-3.87039 Time in seconds: 2.8
+Steering Angles right turn: -0.0587463 -0.0605219
+Output:     1.2423
+-0.0596209
+Current State, Velocity: 22.7599 Current State, Heading:-3.90435 Time in seconds: 2.9
+Steering Angles right turn: -0.0453584 -0.0464102
+Output:     1.1239
+-0.0458783
+Current State, Velocity: 23.0874 Current State, Heading:-3.93085 Time in seconds: 3
+Steering Angles right turn: -0.0334705 -0.03404
+Output:    1.01166
+-0.0337528
+Current State, Velocity: 23.3827 Current State, Heading:-3.95059 Time in seconds: 3.1
+Steering Angles right turn: -0.0229731 -0.02324
+Output:   0.905416
+-0.0231057
+Current State, Velocity: 23.6471 Current State, Heading:-3.96425 Time in seconds: 3.2
+Steering Angles right turn: -0.0137552 -0.0138505
+Output:   0.804974
+-0.0138027
+Current State, Velocity: 23.8825 Current State, Heading:-3.9725 Time in seconds: 3.3
+Steering Angles right turn: -0.00570736 -0.00572369
+Output:    0.710131
+-0.00571551
+Current State, Velocity: 24.0902 Current State, Heading:-3.97594 Time in seconds: 3.4
+Steering Angles left turn: 0.00127727 0.00127645
+Output:   0.620672
+0.00127686
+Current State, Velocity: 24.1878 Current State, Heading:-3.97517 Time in seconds: 3.5
+Steering Angles left turn: 0.00730301 0.00727644
+Output:  0.604675
+0.0072897
+Current State, Velocity: 24.2873 Current State, Heading:-3.97074 Time in seconds: 3.6
+Steering Angles left turn: 0.012481 0.0124036
+Output:  0.530948
+0.0124421
+Current State, Velocity: 24.3752 Current State, Heading:-3.96316 Time in seconds: 3.7
+Steering Angles left turn: 0.016892 0.0167505
+Output:   0.46663
+0.0168209
+Current State, Velocity: 24.4531 Current State, Heading:-3.95287 Time in seconds: 3.8
+Steering Angles left turn: 0.0206193 0.0204089
+Output:   0.40367
+0.0205136
+Current State, Velocity: 24.521 Current State, Heading:-3.9403 Time in seconds: 3.9
+Steering Angles left turn: 0.0237369 0.0234585
+Output:   0.34313
+0.0235969
+Current State, Velocity: 24.579 Current State, Heading:-3.92579 Time in seconds: 4
+Steering Angles left turn: 0.0263134 0.0259718
+Output:  0.284927
+0.0261415
+Current State, Velocity: 24.6271 Current State, Heading:-3.90969 Time in seconds: 4.1
+Steering Angles left turn: 0.0284112 0.0280134
+Output:  0.229113
+0.0282109
+Current State, Velocity: 24.6657 Current State, Heading:-3.89229 Time in seconds: 4.2
+Steering Angles left turn: 0.0300871 0.0296413
+Output:  0.175707
+0.0298625
+Current State, Velocity: 24.6948 Current State, Heading:-3.87385 Time in seconds: 4.3
+Steering Angles left turn: 0.0313924 0.0309074
+Output: 0.124725
+0.031148
+Current State, Velocity: 24.7148 Current State, Heading:-3.8546 Time in seconds: 4.4
+Steering Angles left turn: 0.0323734 0.0318579
+Output: 0.0761679
+0.0321136
+Current State, Velocity: 24.7258 Current State, Heading:-3.83474 Time in seconds: 4.5
+Steering Angles left turn: 0.0330717 0.032534
+Output: 0.0300302
+0.0328006
+Current State, Velocity: 24.7283 Current State, Heading:-3.81446 Time in seconds: 4.6
+Steering Angles left turn: 0.0335247 0.0329722
+Output: -0.0137024
+ 0.0332462
+Current State, Velocity: 24.7225 Current State, Heading:-3.7939 Time in seconds: 4.7
+Steering Angles left turn: 0.0337655 0.0332051
+Output: -0.0550515
+  0.033483
+Current State, Velocity: 24.7088 Current State, Heading:-3.77321 Time in seconds: 4.8
+Steering Angles left turn: 0.0338238 0.0332615
+Output: -0.0940459
+ 0.0335403
+Current State, Velocity: 24.6874 Current State, Heading:-3.7525 Time in seconds: 4.9
+Steering Angles left turn: 0.0337259 0.0331669
+Output:  -0.13072
+0.0334441
+Current State, Velocity: 24.6589 Current State, Heading:-3.73188 Time in seconds: 5
+Steering Angles left turn: 0.0334951 0.0329436
+Output: -0.165114
+ 0.033217
+Current State, Velocity: 24.6234 Current State, Heading:-3.71142 Time in seconds: 5.1
+Steering Angles left turn: 0.0331518 0.0326114
+Output: -0.197273
+0.0328794
+Current State, Velocity: 24.5815 Current State, Heading:-3.69121 Time in seconds: 5.2
+Steering Angles left turn: 0.0327142 0.0321879
+Output: -0.227247
+0.0324489
+Current State, Velocity: 24.5334 Current State, Heading:-3.6713 Time in seconds: 5.3
+Steering Angles left turn: 0.0321982 0.0316882
+Output: -0.255087
+0.0319412
+Current State, Velocity: 24.4795 Current State, Heading:-3.65175 Time in seconds: 5.4
+Steering Angles left turn: 0.0316176 0.0311257
+Output: -0.280851
+0.0313697
+Current State, Velocity: 24.4203 Current State, Heading:-3.63259 Time in seconds: 5.5
+Steering Angles left turn: 0.0309847 0.0305121
+Output: -0.304596
+0.0307466
+Current State, Velocity: 24.3561 Current State, Heading:-3.61386 Time in seconds: 5.6
+Steering Angles left turn: 0.0303099 0.0298575
+Output: -0.326384
+ 0.030082
+Current State, Velocity: 24.2872 Current State, Heading:-3.59559 Time in seconds: 5.7
+Steering Angles left turn: 0.0296025 0.0291709
+Output: -0.346278
+0.0293851
+Current State, Velocity: 24.214 Current State, Heading:-3.5778 Time in seconds: 5.8
+Steering Angles left turn: 0.0288705 0.0284598
+Output:  -0.36434
+0.0286637
+Current State, Velocity: 24.137 Current State, Heading:-3.5605 Time in seconds: 5.9
+Steering Angles left turn: 0.0281207 0.0277309
+Output: -0.380638
+0.0279245
+Current State, Velocity: 24.0564 Current State, Heading:-3.5437 Time in seconds: 6
+Steering Angles left turn: 0.0273591 0.02699
+Output: -0.395235
+0.0271733
+Current State, Velocity: 23.9725 Current State, Heading:-3.52741 Time in seconds: 6.1
+Steering Angles left turn: 0.0265907 0.0262419
+Output: -0.408199
+0.0264151
+Current State, Velocity: 23.8858 Current State, Heading:-3.51163 Time in seconds: 6.2
+Steering Angles left turn: 0.0258198 0.0254908
+Output: -0.419596
+0.0256542
+Current State, Velocity: 23.7965 Current State, Heading:-3.49637 Time in seconds: 6.3
+Steering Angles left turn: 0.0250501 0.0247403
+Output: -0.429492
+0.0248942
+Current State, Velocity: 23.705 Current State, Heading:-3.48161 Time in seconds: 6.4
+Steering Angles left turn: 0.0242847 0.0239935
+Output: -0.437953
+0.0241382
+Current State, Velocity: 23.6115 Current State, Heading:-3.46736 Time in seconds: 6.5
+Steering Angles left turn: 0.0235263 0.0232529
+Output: -0.445045
+0.0233888
+Current State, Velocity: 23.5163 Current State, Heading:-3.45361 Time in seconds: 6.6
+Steering Angles left turn: 0.022777 0.0225206
+Output: -0.450833
+0.0226481
+Current State, Velocity: 23.4198 Current State, Heading:-3.44034 Time in seconds: 6.7
+Steering Angles left turn: 0.0220387 0.0217985
+Output:  -0.45538
+0.0219179
+Current State, Velocity: 23.3222 Current State, Heading:-3.42756 Time in seconds: 6.8
+Steering Angles left turn: 0.0213127 0.021088
+Output:  -0.45875
+0.0211997
+Current State, Velocity: 23.2237 Current State, Heading:-3.41525 Time in seconds: 6.9
+Steering Angles left turn: 0.0206003 0.0203903
+Output: -0.461005
+0.0204948
+Current State, Velocity: 23.1245 Current State, Heading:-3.4034 Time in seconds: 7
+Steering Angles left turn: 0.0199024 0.0197064
+Output: -0.462205
+0.0198039
+Current State, Velocity: 23.025 Current State, Heading:-3.392 Time in seconds: 7.1
+Steering Angles left turn: 0.0192199 0.019037
+Output: -0.462411
+ 0.019128
+Current State, Velocity: 22.9253 Current State, Heading:-3.38104 Time in seconds: 7.2
+Steering Angles left turn: 0.0185532 0.0183827
+Output: -0.461679
+0.0184675
+Current State, Velocity: 22.8257 Current State, Heading:-3.3705 Time in seconds: 7.3
+Steering Angles left turn: 0.0179027 0.0177439
+Output: -0.460068
+ 0.017823
+Current State, Velocity: 22.7263 Current State, Heading:-3.36037 Time in seconds: 7.4
+Steering Angles left turn: 0.0172688 0.017121
+Output: -0.457633
+0.0171946
+Current State, Velocity: 22.6274 Current State, Heading:-3.35064 Time in seconds: 7.5
+Steering Angles left turn: 0.0166515 0.0165141
+Output: -0.454426
+0.0165825
+Current State, Velocity: 22.529 Current State, Heading:-3.3413 Time in seconds: 7.6
+Steering Angles left turn: 0.0160511 0.0159233
+Output: -0.450501
+0.0159869
+Current State, Velocity: 22.4314 Current State, Heading:-3.33233 Time in seconds: 7.7
+Steering Angles left turn: 0.0154673 0.0153486
+Output: -0.445909
+0.0154078
+Current State, Velocity: 22.3347 Current State, Heading:-3.32373 Time in seconds: 7.8
+Steering Angles left turn: 0.0149003 0.0147901
+Output: -0.440697
+ 0.014845
+Current State, Velocity: 22.239 Current State, Heading:-3.31548 Time in seconds: 7.9
+Steering Angles left turn: 0.0143497 0.0142475
+Output: -0.434914
+0.0142984
+Current State, Velocity: 22.1445 Current State, Heading:-3.30756 Time in seconds: 8
+Steering Angles left turn: 0.0138155 0.0137208
+Output: -0.428606
+ 0.013768
+Current State, Velocity: 22.0513 Current State, Heading:-3.29997 Time in seconds: 8.1
+Steering Angles left turn: 0.0132975 0.0132097
+Output: -0.421816
+0.0132534
+Current State, Velocity: 21.9596 Current State, Heading:-3.29269 Time in seconds: 8.2
+Steering Angles left turn: 0.0127953 0.012714
+Output: -0.414587
+0.0127545
+Current State, Velocity: 21.8693 Current State, Heading:-3.28572 Time in seconds: 8.3
+Steering Angles left turn: 0.0123087 0.0122334
+Output: -0.40696
+0.012271
+Current State, Velocity: 21.7807 Current State, Heading:-3.27904 Time in seconds: 8.4
+Steering Angles left turn: 0.0118374 0.0117678
+Output: -0.398974
+0.0118025
+Current State, Velocity: 21.6937 Current State, Heading:-3.27264 Time in seconds: 8.5
+Steering Angles left turn: 0.0113812 0.0113168
+Output: -0.390667
+0.0113489
+Current State, Velocity: 21.6085 Current State, Heading:-3.26651 Time in seconds: 8.6
+Steering Angles left turn: 0.0109396 0.0108801
+Output: -0.382075
+0.0109097
+Current State, Velocity: 21.5251 Current State, Heading:-3.26063 Time in seconds: 8.7
+Steering Angles left turn: 0.0105123 0.0104573
+Output: -0.373231
+0.0104847
+Current State, Velocity: 21.4437 Current State, Heading:-3.25501 Time in seconds: 8.8
+Steering Angles left turn: 0.0100991 0.0100483
+Output:  -0.36417
+0.0100736
+Current State, Velocity: 21.3641 Current State, Heading:-3.24963 Time in seconds: 8.9
+Steering Angles left turn: 0.00969948 0.00965267
+Output:  -0.354923
+0.00967602
+Current State, Velocity: 21.2866 Current State, Heading:-3.24448 Time in seconds: 9
+Steering Angles left turn: 0.00931324 0.00927007
+Output: -0.345519
+0.0092916
+Current State, Velocity: 21.2111 Current State, Heading:-3.23956 Time in seconds: 9.1
+Steering Angles left turn: 0.00893999 0.00890021
+Output:  -0.335986
+0.00892005
+Current State, Velocity: 21.1376 Current State, Heading:-3.23484 Time in seconds: 9.2
+Steering Angles left turn: 0.0085794 0.00854275
+Output:  -0.326352
+0.00856104
+Current State, Velocity: 21.0662 Current State, Heading:-3.23033 Time in seconds: 9.3
+Steering Angles left turn: 0.00823113 0.00819739
+Output:  -0.316642
+0.00821423
+Current State, Velocity: 20.9969 Current State, Heading:-3.22602 Time in seconds: 9.4
+Steering Angles left turn: 0.00789486 0.00786381
+Output: -0.306881
+0.0078793
+Current State, Velocity: 20.9298 Current State, Heading:-3.2219 Time in seconds: 9.5
+Steering Angles left turn: 0.00757025 0.0075417
+Output:   -0.29709
+0.00755595
+Current State, Velocity: 20.8648 Current State, Heading:-3.21796 Time in seconds: 9.6
+Steering Angles left turn: 0.00725699 0.00723075
+Output:  -0.287292
+0.00724385
+Current State, Velocity: 20.8019 Current State, Heading:-3.21419 Time in seconds: 9.7
+Steering Angles left turn: 0.00695476 0.00693066
+Output:  -0.277507
+0.00694268
+Current State, Velocity: 20.7411 Current State, Heading:-3.21059 Time in seconds: 9.8
+Steering Angles left turn: 0.00666324 0.00664112
+Output:  -0.267754
+0.00665216
+Current State, Velocity: 20.6825 Current State, Heading:-3.20715 Time in seconds: 9.9
+Steering Angles left turn: 0.00638215 0.00636185
+Output:  -0.258049
+0.00637198
+Current State, Velocity: 20.6259 Current State, Heading:-3.20386 Time in seconds: 10
+Steering Angles left turn: 0.00611117 0.00609255
+Output:  -0.248411
+0.00610184
+Current State, Velocity: 20.5715 Current State, Heading:-3.20073 Time in seconds: 10.1
+Steering Angles left turn: 0.00585001 0.00583295
+Output:  -0.238854
+0.00584147
+Current State, Velocity: 20.5192 Current State, Heading:-3.19773 Time in seconds: 10.2
+Steering Angles left turn: 0.00559839 0.00558276
+Output:  -0.229393
+0.00559057
+Current State, Velocity: 20.4689 Current State, Heading:-3.19487 Time in seconds: 10.3
+Steering Angles left turn: 0.00535603 0.00534173
+Output:  -0.220041
+0.00534887
+Current State, Velocity: 20.4207 Current State, Heading:-3.19214 Time in seconds: 10.4
+Steering Angles left turn: 0.00512265 0.00510957
+Output:  -0.21081
+0.0051161
+Current State, Velocity: 20.3745 Current State, Heading:-3.18953 Time in seconds: 10.5
+Steering Angles left turn: 0.00489799 0.00488603
+Output: -0.201711
+ 0.004892
+Current State, Velocity: 20.3303 Current State, Heading:-3.18705 Time in seconds: 10.6
+Steering Angles left turn: 0.00468179 0.00467085
+Output:  -0.192755
+0.00467631
+Current State, Velocity: 20.2881 Current State, Heading:-3.18467 Time in seconds: 10.7
+Steering Angles left turn: 0.00447378 0.00446379
+Output:  -0.183952
+0.00446878
+Current State, Velocity: 20.2478 Current State, Heading:-3.18241 Time in seconds: 10.8
+Steering Angles left turn: 0.00427372 0.0042646
+Output:  -0.175309
+0.00426915
+Current State, Velocity: 20.2094 Current State, Heading:-3.18026 Time in seconds: 10.9
+Steering Angles left turn: 0.00408136 0.00407304
+Output: -0.166835
+0.0040772
+Current State, Velocity: 20.1729 Current State, Heading:-3.1782 Time in seconds: 11
+Steering Angles left turn: 0.00389646 0.00388888
+Output:  -0.158536
+0.00389267
+Current State, Velocity: 20.1382 Current State, Heading:-3.17624 Time in seconds: 11.1
+Steering Angles left turn: 0.00371879 0.00371189
+Output:  -0.150418
+0.00371534
+Current State, Velocity: 20.1053 Current State, Heading:-3.17437 Time in seconds: 11.2
+Steering Angles left turn: 0.00354813 0.00354185
+Output:  -0.142488
+0.00354499
+Current State, Velocity: 20.0741 Current State, Heading:-3.17259 Time in seconds: 11.3
+Final State =  20.0741
+-3.17259
+==89537== 
+==89537== HEAP SUMMARY:
+==89537==     in use at exit: 0 bytes in 0 blocks
+==89537==   total heap usage: 9,546 allocs, 9,546 frees, 1,197,732 bytes allocated
+==89537== 
+==89537== All heap blocks were freed -- no leaks are possible
+==89537== 
+==89537== For lists of detected and suppressed errors, rerun with: -s
+==89537== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -63,6 +63,53 @@ During Phase 0 we did design and even added the stubs that we had to do for phas
 * The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
 ![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase1/acme-ackerman-class-diagram.png)
 
+## Phase 2:
+During Phase 0 we did design and even added the stubs that we had to do for phase1, in phase 2 we implemented the project. For phase2 in the the second sprint meeting we decided to update the plan, correspondingly we changed UML class diagram and stubs. Product Backlog, Iteration backlog and work log excel sheet [Sheet](https://docs.google.com/spreadsheets/d/1ph1sYep433EigfkVelYI8igBHbYIN74LMEw9CF0V7-I/edit#gid=0 )
+| Unique ID | Task                                               | Sprint | Estimated Time (min) |
+|-----------|----------------------------------------------------|--------|----------------------|
+| 2.1       | Create iteration 2 branch                         | 2      | 10                   |
+| 2.2       | Implementing the setters for the PID class       | 2      | 10                   |
+| 2.3       | Implementing the getcontrollervalue function...  | 2      | 50                   |
+| 2.4       | Implementing the remaining methods for ackerman  | 2      | 30                   |
+| 2.5       | Implementing the remaining methods for PID       | 2      | 40                   |
+| 2.6       | Implement the main function for the project      | 2      | 10                   |
+| 2.7       | Tune the PID values                              | 2      | 10                   |
+| 2.8       | Update run-unit-test-code-coverage.yml file...   | 2      | 30                   |
+| 2.9       | Update test.cpp                                   | 2      | 40                   |
+| 3         | Update the stubs according to revised UMLs       | 2      | 10                   |
+| 3.1       | Research on various visualization methods        | 2      | 30                   |
+| 3.2       | Create visualization                              | 2      | 50                   |
+| 3.3       | Refactoring the overall code                      | 2      | 20                   |
+| 3.4       | Refactor and debug the visualization               | 2      | 20                   |
+| 3.5       | Revise UML diagrams                               | 2      | 10                   |
+| 3.6       | Revise Activity diagrams                          | 2      | 10                   |
+| 3.7       | Reorganize the file and folder structure          | 2      | 10                   |
+| 3.8       | Prepare files for releasing the software package  | 2      | 30                   |
+| 3.9       | Update Readme with phase 2 descriptions           | 2      | 10                   |
+| 4         | Add Doxygen comments                              | 2      | 10                   |
+| 4.1       | Generate Doxygen documentation                     | 2      | 10                   |
+| 4.2       | Update CMakelists to include visualization        | 2      | 30                   |
+| 4.3       | Cpplint errors                                   | 2      | 30                   |
+| 4.4       | Cppcheck errors                                  | 2      | 30                   |
+| 4.5       | Valgrind to check for memory leaks                | 2      | 20                   |
+| 4.6       | Add and update .gitignore file                   | 2      | 10                   |
+
+
+* The Revised UML Diagrams are found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/tree/main/UML%20diagrams/Revised_Phase2)
+
+* The Activity Diagram found [here](https://github.com/shivamsehgal77/Acme-Ackerman-Controller/blob/main/UML%20diagrams/Revised_Phase2/Revised_Phase2_v1/acme-ackerman-class-diagram.png)
+![Acme Ackerman Class Diagram](UML-diagrams/Revised_Phase2/Revised_Phase2_v1/acme-ackerman-class-diagram.png)
+
+### Results:
+
+The results for phase 2 are shown below, We have plotted the Heading angle vs time and Car Velocity vs time plots with the set points displayed in a separate color, We gave the setpoint as 20 m/s for Target Velocity and -3.14 radians for Target Heading Angle which means the car will execute a clockwise 180 degree heading change starting at 0 m/s and 0 radians heading.
+
+The results show that the target is achieved in a reasonable amount of time, Our chosen wheelbase, axlewidth and WheelRadius were inspired from Tesla Model S specifications available online.
+
+![Car Velocity vs Time](Results/Visualization/Velocity_vs_Time.png)
+
+![Heading Angle vs Time](Results/Visualization/Heading_Angle_vs_Time.png)
+
 ## Dependencies Installation
 The project requires Eigen3 library installation. Follow the below procedure to install Eigen3 libraries
 
@@ -71,6 +118,8 @@ The project requires Eigen3 library installation. Follow the below procedure to 
     sudo apt update && sudo apt install -y cmake g++ wget unzip
     # Download and install Eigen 3
     sudo apt-get install libeigen3-dev
+    # Download if it gives gnuplot doesn't exist error
+    sudo apt-get insall gnuplot
 ```
 
 ## Code Build Procedure

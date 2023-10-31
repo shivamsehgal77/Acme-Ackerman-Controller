@@ -1,0 +1,5 @@
+<map id="Ackerman_Steering_Model::AckermanCalc_StateUpdate" name="Ackerman_Steering_Model::AckermanCalc_StateUpdate">
+<area shape="rect" id="node1" title="Ackerman parameter calculations and state update." alt="" coords="5,39,216,80"/>
+<area shape="rect" id="node2" href="$classAckerman__Steering__Model.html#aeb47243b4dd8a2da8bc91fee692a61a4" title="Get the Vehicle State object." alt="" coords="264,5,459,47"/>
+<area shape="rect" id="node3" href="$classAckerman__Steering__Model.html#ab0eeb93272b43744801bd0557d56fa2a" title="Set the Vehicle State object." alt="" coords="264,71,459,112"/>
+</map>
