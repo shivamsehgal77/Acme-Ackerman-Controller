@@ -21,6 +21,7 @@
 
 #include "../include/PID.hpp"
 
+#include <Eigen/src/Core/Matrix.h>
 #include <eigen3/Eigen/Core>
 
 #include <vector>
@@ -46,7 +47,7 @@ PID::PID() {
  */
 void PID::setKp(Eigen::Matrix<double, 2, 1> Kp_) {
   // @TODO: Implement the logic to set the proportional gain matrix.
-
+  Kp = Kp_;
 }
 
 /**
@@ -56,7 +57,7 @@ void PID::setKp(Eigen::Matrix<double, 2, 1> Kp_) {
  */
 void PID::setKi(Eigen::Matrix<double, 2, 1> Ki_) {
   // @TODO: Implement the logic to set the integral gain matrix.
-
+  Ki = Ki_;
 }
 
 /**
@@ -66,7 +67,7 @@ void PID::setKi(Eigen::Matrix<double, 2, 1> Ki_) {
  */
 void PID::setKd(Eigen::Matrix<double, 2, 1> Kd_) {
   // @TODO: Implement the logic to set the derivative gain matrix.
-
+  Kd = Kd_;
 }
 
 /**
@@ -76,7 +77,7 @@ void PID::setKd(Eigen::Matrix<double, 2, 1> Kd_) {
  */
 void PID::setDt(double dt_) {
   // @TODO: Implement the logic to set the time step.
-
+  dt = dt_;
 }
 
 /**
@@ -86,7 +87,7 @@ void PID::setDt(double dt_) {
  */
 Eigen::Matrix<double, 2, 1> PID::getKp() {
   // @TODO: Implement the logic to get the Eigen proportional gain matrix.
-  return {0.0, 0.0};
+  return Kp;
 }
 
 /**
@@ -96,7 +97,7 @@ Eigen::Matrix<double, 2, 1> PID::getKp() {
  */
 Eigen::Matrix<double, 2, 1> PID::getKi() {
   // @TODO: Implement the logic to get the Eigen integral gain matrix.
-  return {0.0, 0.0};
+  return Ki;
 }
 
 /**
@@ -106,7 +107,7 @@ Eigen::Matrix<double, 2, 1> PID::getKi() {
  */
 Eigen::Matrix<double, 2, 1> PID::getKd() {
   // @TODO: Implement the logic to get the Eigen derivative gain matrix.
-  return {0.0, 0.0};
+  return Kd;
 }
 
 /**
@@ -116,7 +117,7 @@ Eigen::Matrix<double, 2, 1> PID::getKd() {
  */
 double PID::getDt() {
   // @TODO: Implement the logic to get the time step.
-  return 0.1;
+  return dt;
 }
 
 /**
@@ -130,5 +131,38 @@ Eigen::Vector2d PID::ControllerLoop(Eigen::Vector2d TargetState,
                                          Eigen::Vector2d CurrentState) {
   // @TODO: Implement the controller logic to calculate and return the
   // controller output.
-  return {0.0, 0.0};    
+  Eigen::Vector2d error{0, 0};
+  std::vector<Eigen::Vector2d> error_history;
+  Ackerman_Steering_Model ackerman;
+  ackerman.setWheelBase(4.0);
+  ackerman.setAxleWidth(2.0);
+  ackerman.setWheelRadius(0.225);
+  ackerman.setVehicleState(CurrentState);
+  error = TargetState - CurrentState;
+  error_history.push_back(error);
+  Eigen::Vector2d error_diff{0, 0};
+  double total_time{0};
+  while (error.norm() > 0.1) {
+    Eigen::Vector2d error_sum{0, 0};
+    if (error_history.size() > 1) { 
+      for (auto i : error_history) {
+        error_sum += i;
+      }
+      error_diff = error - error_history.at(error_history.size() - 2);
+    }
+    Eigen::Vector2d output = Kp.cwiseProduct(error) +
+                             Ki.cwiseProduct(error_sum) * dt +
+                             Kd.cwiseProduct(error_diff) / dt;
+    if (TargetState[0] < 0) {
+      output[1] = -output[1];
+    }
+    ackerman.AckermanCalc_StateUpdate(output, dt);
+    CurrentState =  ackerman.getVehicleState();
+    error = TargetState - CurrentState;
+    error_history.push_back(error);
+    total_time+=dt;
+    std::cout << "Output: " << output << std::endl;
+    std::cout << "Current State, Velocity: " << CurrentState[0] << " Current State, Heading:" << CurrentState[1] << " Time in seconds: " << total_time << std::endl;
+  }
+  return CurrentState;  
 }
