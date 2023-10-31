@@ -106,20 +106,37 @@ The results for phase 2 are shown below, We have plotted the Heading angle vs ti
 
 The results show that the target is achieved in a reasonable amount of time, Our chosen wheelbase, axlewidth and WheelRadius were inspired from Tesla Model S specifications available online.
 
-![Car Velocity vs Time](Results/Visualization/Velocity_vs_Time.png)
+<div align="center">
+  <figure>
+    <img src="Results/Visualization/Velocity_vs_Time.png" alt="Car Velocity vs Time">
+    <img src="Results/Visualization/Heading_Angle_vs_Time.png" alt="Heading Angle vs Time">
+    <figcaption>For Target Inputs 20 m/s (Car Velocity) and -3.14 radians (heading), Plots of Velocity vs time and Heading angle vs time</figcaption>
+  </figure>
+</div>
 
-![Heading Angle vs Time](Results/Visualization/Heading_Angle_vs_Time.png)
+Additional tests show the effectiveness of our controller for edge cases like reverse motion and negative heading, The results are shown below:
+
+<div align="center">
+  <figure>
+    <img src="Results/Visualization/Velocity_vs_Time_Reverse.png" alt="Car Velocity vs Time">
+    <img src="Results/Visualization/Heading_Angle_vs_Time_Reverse.png" alt="Heading Angle vs Time">
+    <figcaption>For Target Inputs -20 m/s (Car Velocity) and -3.14 radians (heading), Plots of Velocity vs time and Heading angle vs time</figcaption>
+  </figure>
+</div>
+
+There are unit tests in the test suite for the same along with the forward only and reverse only testcases.
+
 
 ## Dependencies Installation
-The project requires Eigen3 library installation. Follow the below procedure to install Eigen3 libraries
+The project requires Eigen3 and GNUPlot (Matplot++ installed during build) library installation. Follow the below procedure to install Eigen3 libraries
 
 ```bash
     # Install minimal prerequisites (Ubuntu 20.04 as reference)
     sudo apt update && sudo apt install -y cmake g++ wget unzip
     # Download and install Eigen 3
     sudo apt-get install libeigen3-dev
-    # Download if it gives gnuplot doesn't exist error
-    sudo apt-get insall gnuplot
+    # Matplot++ is installed during cmake but if there is an error during execution, Download if it gives gnuplot doesn't exist error
+    sudo apt-get install gnuplot
 ```
 
 ## Code Build Procedure
